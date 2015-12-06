@@ -636,11 +636,3 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
-/src/EnterpriseVertexDashboard
-
-/Dashboard/bower_components/
-/Dashboard/node_modules/
-/OneTax UI/.vs/
-/OneTax UI/OneTaxReporting.sln.ide/storage.ide
-/OneTax UI/OneTaxReporting.sln.ide
-/OneTax UI/packages
