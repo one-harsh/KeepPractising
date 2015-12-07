@@ -24,5 +24,62 @@ namespace KeepPractising.Stacks
                 Console.WriteLine("Test of deliberate pop on empty stack successful!");
             }
         }
+
+        public static void TestKStacks()
+        {
+            Console.WriteLine("Testing K Stacks in an array!\n");
+
+            MyKStacksInArray<int> kStacks = new MyKStacksInArray<int>(15, 3);
+            kStacks.Push(15, 1);
+            Console.WriteLine(kStacks.Pop(1));
+            try
+            {
+                Console.WriteLine(kStacks.Pop(1));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Stack underflow test detection successful!");
+            }
+
+            kStacks.Push(5, 2);
+            kStacks.Push(10, 1);
+            kStacks.Push(15, 1);
+            kStacks.Push(20, 1);
+            kStacks.Push(25, 2);
+            kStacks.Push(30, 2);
+            kStacks.Push(35, 3);
+            kStacks.Push(40, 2);
+            kStacks.Push(45, 3);
+            kStacks.Push(50, 1);
+            kStacks.Push(55, 2);
+            kStacks.Push(60, 2);
+            kStacks.Push(65, 1);
+            kStacks.Push(70, 3);
+            kStacks.Push(75, 1);
+            try
+            {
+                kStacks.Push(80, 3);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Stack overflow test detection successful!");
+            }
+
+            Console.WriteLine(kStacks.Pop(1));
+            Console.WriteLine(kStacks.Pop(1));
+            Console.WriteLine(kStacks.Pop(2));
+            Console.WriteLine(kStacks.Pop(3));
+            Console.WriteLine(kStacks.Pop(3));
+            Console.WriteLine(kStacks.Pop(1));
+            Console.WriteLine(kStacks.Pop(3));
+            try
+            {
+                Console.WriteLine(kStacks.Pop(3));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Stack underflow test detection successful!");
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace KeepPractising.LinkedLists
 {
-    class IntersectionPoint<T>
+    class IntersectionPoint
     {
-        public static bool CheckIntersection(MyLinkedList<T> list1, MyLinkedList<T> list2)
+        public static bool CheckIntersection<T>(MyLinkedList<T> list1, MyLinkedList<T> list2)
         {
             bool flagHead1;
             MyLinkedList<T>.MyNode tempNode = null, node1, node2;
@@ -37,7 +37,7 @@
             return false;
         }
 
-        private static int GetCountDifferenceOfLists(MyLinkedList<T> list1, MyLinkedList<T> list2, out bool flagHead1, out MyLinkedList<T>.MyNode tempNode)
+        private static int GetCountDifferenceOfLists<T>(MyLinkedList<T> list1, MyLinkedList<T> list2, out bool flagHead1, out MyLinkedList<T>.MyNode tempNode)
         {
             flagHead1 = true;
             int count1 = list1.Length, count2 = list2.Length;
