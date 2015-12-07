@@ -1,6 +1,7 @@
-﻿using System;
+﻿using KeepPractising.LinkedLists;
+using System;
 
-namespace KeepPractising
+namespace KeepPractising.Queues
 {
     public class MyQueue<T>
     {

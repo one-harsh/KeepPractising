@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace KeepPractising
@@ -7,86 +8,38 @@ namespace KeepPractising
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Choose the testing suite class!");
+            PrintTestSuiteEnum();
+            TestSuite className = (TestSuite)Enum.Parse(typeof(TestSuite), Console.ReadLine().Trim());
+
             Console.WriteLine("Enter the method that contains the testing code!");
             string methodName = Console.ReadLine();
             methodName = methodName.Trim();
 
-            MethodInfo method = typeof(Program).GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
+            Console.WriteLine();
+
+            var assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(r => r.FullName.StartsWith("KeepPractising"));
+            var type = assembly.GetTypes().FirstOrDefault(r => r.Name == className.ToString());
+
+            MethodInfo method = type.GetMethod(methodName, BindingFlags.Static | BindingFlags.Public);
             method.Invoke(null, new object[] { });
 
             Console.Read();
         }
 
-        static void TestStack()
+        static void PrintTestSuiteEnum()
         {
-            Console.WriteLine("Testing stack operations!\n");
+            var values = (TestSuite[])Enum.GetValues(typeof(TestSuite));
 
-            MyStack<int> stack = new MyStack<int>();
-            stack.Push(10);
-            Console.WriteLine(stack.Pop());
-            stack.Push(20);
-            stack.Push(25);
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            try
-            {
-                Console.WriteLine(stack.Pop());
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Test of deliberate pop on empty stack successful!");
-            }
+            for (int i = 0; i < values.Length; i++)
+                Console.WriteLine((i + 1) + " for " + values[i]);
         }
+    }
 
-        static void TestQueue()
-        {
-            Console.WriteLine("Testing queue operations!\n");
-
-            MyQueue<int> queue = new MyQueue<int>();
-            queue.Enqueue(10);
-            Console.WriteLine(queue.Dequeue());
-            queue.Enqueue(20);
-            queue.Enqueue(25);
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            try
-            {
-                Console.WriteLine(queue.Dequeue());
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Test of deliberate dequeue on empty queue successful!");
-            }
-        }
-
-        static void TestLinkedList()
-        {
-            Console.WriteLine("Testing linked list operations!\n");
-
-            MyLinkedList<int> list = new MyLinkedList<int>();
-            list.AddFirst(10);
-            list.AddFirst(20);
-            list.AddLast(10);
-            list.AddLast(20);
-
-            list.PrintList();
-
-            Console.WriteLine("Testing removal from linked list!");
-            Console.WriteLine(list.RemoveFirst());
-            Console.WriteLine(list.RemoveFirst());
-            Console.WriteLine(list.RemoveLast());
-            Console.WriteLine(list.RemoveLast());
-
-            try
-            {
-                list.RemoveFirst();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Test of deliberate removal of a node on empty list successful!");
-            }
-
-            list.PrintList();
-        }
+    enum TestSuite
+    {
+        MyLinkedListsTestSuite = 1,
+        MyStacksTestSuite = 2,
+        MyQueuesTestSuite = 3
     }
 }

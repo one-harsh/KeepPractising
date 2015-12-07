@@ -1,16 +1,61 @@
 ﻿using System;
 
-namespace KeepPractising
+namespace KeepPractising.LinkedLists
 {
     class MyLinkedList<T>
     {
-        private MyNode<T> firstNode, lastNode;
+        private MyNode firstNode, lastNode;
+
+        private interface INodeAction
+        {
+            void SetNextNode(MyNode node);
+        }
+
+        public class MyNode : INodeAction
+        {
+            private MyNode nextNode;
+            private T obj;
+
+            public T Object
+            {
+                get
+                {
+                    return obj;
+                }
+            }
+
+            public MyNode Next
+            {
+                get
+                {
+                    return nextNode;
+                }
+            }
+
+            public MyNode(T obj)
+            {
+                this.obj = obj;
+            }
+
+            void INodeAction.SetNextNode(MyNode nextNode)
+            {
+                this.nextNode = nextNode;
+            }
+        }
 
         public T First
         {
             get
             {
                 return firstNode.Object;
+            }
+        }
+
+        public MyNode FirstNode
+        {
+            get
+            {
+                return firstNode;
             }
         }
 
@@ -22,34 +67,46 @@ namespace KeepPractising
             }
         }
 
-        private class MyNode<N>
+        public MyNode LastNode
         {
-            public N Object { get; set; }
-
-            public MyNode<N> Next { get; set; }
-
-            public MyNode(N obj)
+            get
             {
-                Object = obj;
+                return lastNode;
+            }
+        }
+
+        public int Length
+        {
+            get
+            {
+                int count = 0;
+                MyNode node = FirstNode;
+                while (node != null)
+                {
+                    count++;
+                    node = node.Next;
+                }
+
+                return count;
             }
         }
 
         public void AddFirst(T obj)
         {
-            MyNode<T> node = new MyNode<T>(obj);
-            node.Next = firstNode;
+            INodeAction node = new MyNode(obj);
+            node.SetNextNode(firstNode);
 
-            firstNode = node;
+            firstNode = node as MyNode;
 
             if (lastNode == null)
-                lastNode = node; 
+                lastNode = node as MyNode;
         }
 
         public void AddLast(T obj)
         {
-            MyNode<T> node = new MyNode<T>(obj);
+            MyNode node = new MyNode(obj);
             if (lastNode != null)
-                lastNode.Next = node;
+                (lastNode as INodeAction).SetNextNode(node);
             else
                 lastNode = node;
 
@@ -99,14 +156,13 @@ namespace KeepPractising
                 }
 
                 if (lastNode != null)
-                    lastNode.Next = null;
+                    (lastNode as INodeAction).SetNextNode(null);
 
                 return val;
             }
             else
                 throw new Exception("RemoveLast operation not allowed on empty linked list!");
         }
-
 
         public void PrintList()
         {
@@ -117,7 +173,7 @@ namespace KeepPractising
                 return;
             }
 
-            MyNode<T> node = firstNode;
+            MyNode node = firstNode;
             while (node != null)
             {
                 Console.WriteLine(node.Object);
