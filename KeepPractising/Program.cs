@@ -40,6 +40,7 @@ namespace KeepPractising
     {
         MyLinkedListsTestSuite = 1,
         MyStacksTestSuite = 2,
-        MyQueuesTestSuite = 3
+        MyQueuesTestSuite = 3,
+        MyThreadingTestSuite = 4
     }
 }
