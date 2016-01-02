@@ -17,10 +17,16 @@ All other classes in this namespace solve a linked list related problem.
 
 All other classes in this namespace solve a stack related problem.
 
-### MyQueue
+### Queues
 **MyQueue** inside *Queues* namespace creates a generic queue for any given object by using MyLinkedList class.
 
 All other classes in this namespace solve a queue related problem.
 
+### Matrix
+*Matrix* namespace contains solutions to problems which require matrix for their representation and/or involve graphs.
+
 ### Threading
 *Threading* namespace contains some threading related problem like job scheduling and others.
+
+### InterestingProblems
+*InterestingProblems* namespace contains problems which could not be categorised specifically in any of the above types of problem. The documentation of each solution class generally describes the problem and gives a gist of solution approach being used.
