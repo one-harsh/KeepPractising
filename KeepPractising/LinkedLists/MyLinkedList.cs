@@ -1,14 +1,17 @@
-﻿using System;
+﻿using Console = System.Console;
+using Exception = System.Exception;
 
 namespace KeepPractising.LinkedLists
 {
-    class MyLinkedList<T>
+    public class MyLinkedList<T>
     {
         private MyNode firstNode, lastNode;
 
         private interface INodeAction
         {
             void SetNextNode(MyNode node);
+
+            void RemoveNextNode();
         }
 
         public class MyNode : INodeAction
@@ -39,7 +42,16 @@ namespace KeepPractising.LinkedLists
 
             void INodeAction.SetNextNode(MyNode nextNode)
             {
+                var temp = this.nextNode;
                 this.nextNode = nextNode;
+                if (nextNode != null)
+                    nextNode.nextNode = temp;
+            }
+
+            void INodeAction.RemoveNextNode()
+            {
+                if (nextNode != null)
+                    nextNode = nextNode.nextNode;
             }
         }
 
@@ -156,12 +168,57 @@ namespace KeepPractising.LinkedLists
                 }
 
                 if (lastNode != null)
-                    (lastNode as INodeAction).SetNextNode(null);
+                    (lastNode as INodeAction).RemoveNextNode();
 
                 return val;
             }
             else
                 throw new Exception("RemoveLast operation not allowed on empty linked list!");
+        }
+
+        public void InsertAfter(MyNode node, T obj)
+        {
+            if (node == null)
+                throw new Exception("Cannot insert after null node!");
+
+            MyNode newNode = new MyNode(obj);
+            InsertAfter(node, newNode);
+        }
+
+        public void InsertAfter(MyNode node, MyNode newNode)
+        {
+            if (node == null)
+                throw new Exception("Cannot insert after null node!");
+
+            (node as INodeAction).SetNextNode(newNode);
+        }
+
+        public void RemoveNode(MyNode node)
+        {
+            if (node == null)
+                return;
+
+            if (node == firstNode)
+            {
+                RemoveFirst();
+                return;
+            }
+
+            MyNode current = firstNode;
+            while(current.Next != node)
+            {
+                current = current.Next;
+            }
+
+            if (current.Next == lastNode)
+                lastNode = current;
+
+            RemoveNextNode(current);
+        }
+
+        public void RemoveNextNode(MyNode node)
+        {
+            (node as INodeAction).RemoveNextNode();
         }
 
         public void PrintList()

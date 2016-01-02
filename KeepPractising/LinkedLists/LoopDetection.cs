@@ -1,6 +1,6 @@
 ﻿namespace KeepPractising.LinkedLists
 {
-    class LoopDetection
+    public class LoopDetection
     {
         public static bool DetectLoop<T>(MyLinkedList<T> list)
         {

@@ -1,6 +1,6 @@
 ﻿namespace KeepPractising.LinkedLists
 {
-    class IntersectionPoint
+    public class IntersectionPoint
     {
         public static bool CheckIntersection<T>(MyLinkedList<T> list1, MyLinkedList<T> list2)
         {

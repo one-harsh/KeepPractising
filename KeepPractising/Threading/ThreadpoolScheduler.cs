@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace KeepPractising.Threading
 {
-    class ThreadpoolScheduler
+    public class ThreadpoolScheduler
     {
         public void TrySchedulingAndProcessing(int workerThreads, int completionPortThreads)
         {

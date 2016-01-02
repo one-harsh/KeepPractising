@@ -42,10 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />
+    <Compile Include="InterestingProblems\NumberOfDisksInWavyCircularWell.cs" />
     <Compile Include="LinkedLists\IntersectionPoint.cs" />
     <Compile Include="LinkedLists\LoopDetection.cs" />
     <Compile Include="LinkedLists\MyLinkedList.cs" />
     <Compile Include="LinkedLists\MyLinkedListsTestSuite.cs" />
+    <Compile Include="Matrix\MyMatrixTestSuite.cs" />
+    <Compile Include="Matrix\RatInAMaze.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queues\MyQueue.cs" />
