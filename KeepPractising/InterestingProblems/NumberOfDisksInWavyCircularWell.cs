@@ -5,7 +5,7 @@ namespace KeepPractising.InterestingProblems
     /// <summary>
     /// This class presents a solution for a well which has circular rings with same centre but the ring diameters are not strictly in increasing or decreasing order
     /// and the problem is to find out the number of circular disks that can be inserted. 
-    /// The solution considers that the given disk array has disks of various diameters & is not ordered by its radius size either.
+    /// The solution considers that the given disk array has disks of various diameters and is not ordered by its radius size either.
     /// The ring height of both well and disk, however, are constant and equal.
     /// <para />For example, well's ring radius array could be { 5, 6, 7, 3, 4, 7 } and disk's radius array could be { 2, 4, 1, 6 }
     /// <para />The solution runs in O(numberOfWellRings) time and uses O(numberOfWellRings) space.
@@ -26,7 +26,7 @@ namespace KeepPractising.InterestingProblems
             if (decreasingRingRadiusFromTop.Length == 0)
                 return count;
 
-            // As the first disk would take its position on the raidus which sits on top of the stack, we would pop the stack as this would already be occupied by this first disk.
+            // As the first disk would take its position on the ring whose radius sits on top of the stack, we would pop the stack as this would already be occupied by this first disk.
             decreasingRingRadiusFromTop.Pop();
             count++;
 
