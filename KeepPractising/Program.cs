@@ -44,11 +44,13 @@ namespace KeepPractising
 
     enum TestSuite
     {
-        MyLinkedListsTestSuite = 1,
-        MyStacksTestSuite = 2,
-        MyQueuesTestSuite = 3,
-        MyMatrixTestSuite = 4,
-        MyThreadingTestSuite = 5,
-        InterestingProblemsTestSuite = 6
+        MySortingTestSuite = 1,
+        MyLinkedListsTestSuite = 2,
+        MyStacksTestSuite = 3,
+        MyQueuesTestSuite = 4,
+        StringsTestSuite = 5,
+        MyMatrixTestSuite = 6,
+        MyThreadingTestSuite = 7,
+        InterestingProblemsTestSuite = 8
     }
 }

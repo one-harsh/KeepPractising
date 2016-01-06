@@ -4,6 +4,9 @@ Some random codes for practise
 ## Design
 Every type of problem has been sub-categorised. Each sub-category contains its own *TestSuite* class which contains methods to test the solution class of the problem. The main execution relies heavily on reflection to find all the testable methods in the *TestSuite* class.
 
+### Sorting
+*Sorting* namespace contains some of the sorting techniques implemented as extension methods.
+
 ### LinkedLists
 **MyLinkedLists** inside the *LinkedLists* namespace creates a generic class that creates a LinkedList on a given object. It contains a nested class - **MyNode** to create nodes for the linked list.
 One can add a node to **MyLinkedList** either at the beginning or at the end.
@@ -21,6 +24,9 @@ All other classes in this namespace solve a stack related problem.
 **MyQueue** inside *Queues* namespace creates a generic queue for any given object by using MyLinkedList class.
 
 All other classes in this namespace solve a queue related problem.
+
+### Strings
+*Strings* namespace contains some problems based on string manipulation.
 
 ### Matrix
 *Matrix* namespace contains solutions to problems which require matrix for their representation and/or involve graphs.

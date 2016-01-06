@@ -84,10 +84,30 @@ namespace KeepPractising.LinkedLists
 
             var method = list.LastNode.GetType()
                                 .GetMethods(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                                .FirstOrDefault(r => r.Name == "KeepPractising.LinkedLists.MyLinkedList<T>.INodeAction.SetNextNode");
-            method.Invoke(list.LastNode, new object[] { list.FirstNode.Next });
+                                .FirstOrDefault(r => r.Name == "KeepPractising.LinkedLists.MyLinkedList<T>.INodeAction.SetAsFirstNode");
+            method.Invoke(list.FirstNode.Next, new object[] { list.LastNode });
 
             Console.WriteLine(LoopDetection.DetectLoop(list));
+        }
+
+        public static void TestReverseLinkedList()
+        {
+            Console.WriteLine("Testing for linked list reversion!");
+
+            MyLinkedList<int> list = new MyLinkedList<int>();
+
+            list.AddLast(10);
+            list.AddLast(12);
+            list.AddLast(14);
+            list.AddLast(16);
+            list.AddLast(18);
+
+            list.PrintList();
+
+            Console.WriteLine("Reverting the linked list now!");
+
+            list.Reverse();
+            list.PrintList();
         }
     }
 }

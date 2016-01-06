@@ -9,9 +9,23 @@ namespace KeepPractising.LinkedLists
 
         private interface INodeAction
         {
-            void SetNextNode(MyNode node);
+            /// <summary>
+            /// Sets toBeSetNode as the parent node to the current node.
+            /// </summary>
+            /// <param name="toBeSetNode"></param>
+            void SetAsFirstNode(MyNode toBeSetNode);
 
-            void RemoveNextNode();
+            /// <summary>
+            /// Inserts nextNode after the current node.
+            /// </summary>
+            /// <param name="nextNode"></param>
+            void SetNextNode(MyNode nextNode);
+
+            /// <summary>
+            /// Removes the next node to the current node. The next node of the previous next node is set as its new next node.
+            /// </summary>
+            /// <returns></returns>
+            MyNode RemoveNextNode();
         }
 
         public class MyNode : INodeAction
@@ -40,6 +54,13 @@ namespace KeepPractising.LinkedLists
                 this.obj = obj;
             }
 
+            void INodeAction.SetAsFirstNode(MyNode toBeSetNode)
+            {
+                if (toBeSetNode == null)
+                    throw new Exception("Cannot set null node as first node!");
+                toBeSetNode.nextNode = this;
+            }
+
             void INodeAction.SetNextNode(MyNode nextNode)
             {
                 var temp = this.nextNode;
@@ -48,10 +69,12 @@ namespace KeepPractising.LinkedLists
                     nextNode.nextNode = temp;
             }
 
-            void INodeAction.RemoveNextNode()
+            MyNode INodeAction.RemoveNextNode()
             {
+                var temp = nextNode;
                 if (nextNode != null)
                     nextNode = nextNode.nextNode;
+                return temp;
             }
         }
 
@@ -105,18 +128,29 @@ namespace KeepPractising.LinkedLists
 
         public void AddFirst(T obj)
         {
-            INodeAction node = new MyNode(obj);
-            node.SetNextNode(firstNode);
+            var node = new MyNode(obj);
+            AddFirst(node as MyNode);
+        }
 
-            firstNode = node as MyNode;
+        public void AddFirst(MyNode node)
+        {
+            if (firstNode != null)
+                (firstNode as INodeAction).SetAsFirstNode(node);
+
+            firstNode = node;
 
             if (lastNode == null)
-                lastNode = node as MyNode;
+                lastNode = node;
         }
 
         public void AddLast(T obj)
         {
-            MyNode node = new MyNode(obj);
+            var node = new MyNode(obj);
+            AddLast(node);
+        }
+
+        public void AddLast(MyNode node)
+        {
             if (lastNode != null)
                 (lastNode as INodeAction).SetNextNode(node);
             else
@@ -128,17 +162,22 @@ namespace KeepPractising.LinkedLists
             lastNode = node;
         }
 
-        public T RemoveFirst()
+        private MyNode RemoveFirstNode()
         {
             if (firstNode != null)
             {
                 var obj = firstNode;
                 firstNode = firstNode.Next;
                 lastNode = firstNode == null ? null : lastNode;
-                return obj.Object;
+                return obj;
             }
             else
                 throw new Exception("RemoveFirst operation not allowed on empty linked list!");
+        }
+
+        public T RemoveFirst()
+        {
+            return RemoveFirstNode().Object;
         }
 
         public T RemoveLast()
@@ -193,16 +232,13 @@ namespace KeepPractising.LinkedLists
             (node as INodeAction).SetNextNode(newNode);
         }
 
-        public void RemoveNode(MyNode node)
+        public MyNode RemoveNode(MyNode node)
         {
             if (node == null)
-                return;
+                return null;
 
             if (node == firstNode)
-            {
-                RemoveFirst();
-                return;
-            }
+                return RemoveFirstNode();
 
             MyNode current = firstNode;
             while(current.Next != node)
@@ -213,12 +249,12 @@ namespace KeepPractising.LinkedLists
             if (current.Next == lastNode)
                 lastNode = current;
 
-            RemoveNextNode(current);
+            return RemoveNextNode(current);
         }
 
-        public void RemoveNextNode(MyNode node)
+        public MyNode RemoveNextNode(MyNode node)
         {
-            (node as INodeAction).RemoveNextNode();
+            return (node as INodeAction).RemoveNextNode();
         }
 
         public void PrintList()
