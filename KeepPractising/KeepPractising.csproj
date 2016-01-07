@@ -56,8 +56,10 @@
     <Compile Include="Queues\MyQueue.cs" />
     <Compile Include="Queues\MyQueuesTestSuite.cs" />
     <Compile Include="Sorting\MyHeapSort.cs" />
+    <Compile Include="Sorting\MyInsertionSort.cs" />
     <Compile Include="Sorting\MyMergeSort.cs" />
     <Compile Include="Sorting\MyQuickSort.cs" />
+    <Compile Include="Sorting\MySelectionSort.cs" />
     <Compile Include="Sorting\MySortingTestSuite.cs" />
     <Compile Include="Stacks\MyKStacksInArray.cs" />
     <Compile Include="Stacks\MyStack.cs" />

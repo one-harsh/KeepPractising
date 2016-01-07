@@ -1,0 +1,45 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using System.Reflection;
+
+namespace KeepPractising.UnitTests
+{
+    [TestClass]
+    public class KeepPractisingUnitTest
+    {
+        Assembly keepPracticisingAssembly;
+        Type testSuiteEnumType;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            StrongReferenceLoader.Load();
+            keepPracticisingAssembly = AppDomain.CurrentDomain.GetAssemblies().Where(r => r.FullName.StartsWith("KeepPractising") && !r.FullName.Contains("UnitTests")).FirstOrDefault();
+            testSuiteEnumType = keepPracticisingAssembly.GetTypes().FirstOrDefault(r => r.Name == "TestSuite");
+        }
+
+        [TestMethod]
+        public void TestAllSuccessfulTestSuiteMethodRunsExceptThreadingProblems()
+        {
+            var fields = testSuiteEnumType.GetFields().ToArray();
+            var classNames = Enum.GetValues(testSuiteEnumType);
+
+            for (int i = 0; i < fields.Length - 1; i++) // Length - 1 because the enum index starts from 1
+            {
+                if (classNames.GetValue(i).ToString() == "MyThreadingTestSuite")
+                    continue;
+
+                var classType = keepPracticisingAssembly.GetTypes().FirstOrDefault(r => r.Name == classNames.GetValue(i).ToString());
+
+                var methods = Program.GetPublicStaticMethods(classType);
+
+                for (int methodIndex = 0; methodIndex < methods.Length; methodIndex++)
+                {
+                    var method = methods[methodIndex];
+                    method.Invoke(null, new object[] { }); 
+                }
+            }
+        }
+    }
+}

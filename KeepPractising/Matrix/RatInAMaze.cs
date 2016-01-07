@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Returns the path, using backtracking technique, if it exists from [0, 0] position to [RowCount -1, ColumnCount - 1].
+        /// Returns the path, using backtracking technique, if it exists from [0, 0] position to [RowCount - 1, ColumnCount - 1].
         /// If the path doesn't exist, then the [0, 0] position's value is 0.
         /// </summary>
         /// <returns></returns>
@@ -62,7 +62,7 @@
         }
 
         /// <summary>
-        /// Returns the path, using BFS technique, if it exists from [0, 0] position to [RowCount -1, ColumnCount - 1].
+        /// Returns the path, using BFS technique, if it exists from [0, 0] position to [RowCount - 1, ColumnCount - 1].
         /// If the path doesn't exist, then the [0, 0] position's value is 0.
         /// </summary>
         /// <returns></returns>
@@ -74,7 +74,7 @@
         }
 
         /// <summary>
-        /// Returns the path, using A* technique, if it exists from [0, 0] position to [RowCount -1, ColumnCount - 1].
+        /// Returns the path, using A* technique, if it exists from [0, 0] position to [RowCount - 1, ColumnCount - 1].
         /// If the path doesn't exist, then the [0, 0] position's value is 0.
         /// </summary>
         /// <returns></returns>

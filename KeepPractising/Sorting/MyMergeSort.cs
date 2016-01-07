@@ -11,8 +11,11 @@ namespace KeepPractising.Sorting
         /// <param name="items"></param>
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
-        public static void MergeSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IConvertible
+        public static void MergeSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
         {
+            if (items == null)
+                return;
+
             startIndex = startIndex == -1 ? 0 : startIndex;
             endIndex = endIndex == -1 ? items.Length - 1 : endIndex;
             Sort(items, startIndex, endIndex);
@@ -27,6 +30,9 @@ namespace KeepPractising.Sorting
         /// <returns></returns>
         public static string MergeSort(this string str, int startIndex = -1, int endIndex = -1)
         {
+            if (string.IsNullOrWhiteSpace(str))
+                return str;
+
             startIndex = startIndex == -1 ? 0 : startIndex;
             endIndex = endIndex == -1 ? str.Length - 1 : endIndex;
 
@@ -35,7 +41,7 @@ namespace KeepPractising.Sorting
             return string.Join("", items);
         }
 
-        private static void Sort<T>(T[] items, int left, int right) where T : IComparable, IConvertible
+        private static void Sort<T>(T[] items, int left, int right) where T : IComparable, IEquatable<T>
         {
             if (left < right)
             {
@@ -46,7 +52,7 @@ namespace KeepPractising.Sorting
             }
         }
 
-        private static void MergePartitions<T>(T[] items, int left, int mid, int right) where T : IComparable, IConvertible
+        private static void MergePartitions<T>(T[] items, int left, int mid, int right) where T : IComparable, IEquatable<T>
         {
             int i, j, k = left;
 

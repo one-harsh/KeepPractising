@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace KeepPractising
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -14,10 +14,10 @@ namespace KeepPractising
 
             Console.WriteLine("Choose the method in your chosen test suite!");
 
-            var assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(r => r.FullName.StartsWith("KeepPractising"));
+            var assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(r => r.FullName.StartsWith("KeepPractising") && !r.FullName.Contains("UnitTests"));
             var type = assembly.GetTypes().FirstOrDefault(r => r.Name == className.ToString());
 
-            var methods = GetMethods(type);
+            var methods = GetPublicStaticMethods(type);
             var methodIndex = Convert.ToInt16(Console.ReadLine().Trim()) - 1;
             var method = methods[methodIndex];
             method.Invoke(null, new object[] { });
@@ -25,7 +25,7 @@ namespace KeepPractising
             Console.Read();
         }
 
-        private static MethodInfo[] GetMethods(Type type)
+        public static MethodInfo[] GetPublicStaticMethods(Type type)
         {
             var methods = type.GetMethods(BindingFlags.Static | BindingFlags.Public);
             for (int i = 0; i < methods.Length; i++)

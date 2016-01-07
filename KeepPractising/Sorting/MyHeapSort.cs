@@ -11,8 +11,11 @@ namespace KeepPractising.Sorting
         /// <param name="items"></param>
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
-        public static void HeapSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IConvertible
+        public static void HeapSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
         {
+            if (items == null)
+                return;
+
             startIndex = startIndex == -1 ? 0 : startIndex;
             endIndex = endIndex == -1 ? items.Length - 1 : endIndex;
 
@@ -37,6 +40,9 @@ namespace KeepPractising.Sorting
         /// <returns></returns>
         public static string HeapSort(this string str, int startIndex = -1, int endIndex = -1)
         {
+            if (string.IsNullOrWhiteSpace(str))
+                return str;
+
             startIndex = startIndex == -1 ? 0 : startIndex;
             endIndex = endIndex == -1 ? str.Length - 1 : endIndex;
 
@@ -55,7 +61,7 @@ namespace KeepPractising.Sorting
             return string.Join("", copyArr);
         }
 
-        private static void Sort<T>(T[] items) where T : IComparable, IConvertible
+        private static void Sort<T>(T[] items) where T : IComparable, IEquatable<T>
         {
             T temp;
 
@@ -78,7 +84,7 @@ namespace KeepPractising.Sorting
         /// <param name="arr"></param>
         /// <param name="root"></param>
         /// <param name="bottom"></param>
-        private static void FixDown<T>(T[] arr, int root, int bottom) where T : IComparable, IConvertible
+        private static void FixDown<T>(T[] arr, int root, int bottom) where T : IComparable, IEquatable<T>
         {
             T temp;
             while(2 * root <= bottom)
@@ -105,7 +111,7 @@ namespace KeepPractising.Sorting
         /// <typeparam name="T"></typeparam>
         /// <param name="arr"></param>
         /// <param name="bottom"></param>
-        private static void FixUp<T>(T[] arr, int bottom) where T : IComparable, IConvertible // Kept it if someone is interested in doing it the opposite way.
+        private static void FixUp<T>(T[] arr, int bottom) where T : IComparable, IEquatable<T> // Kept it if someone is interested in doing it the opposite way.
         {
             T temp;
             int k = bottom / 2, j = bottom;

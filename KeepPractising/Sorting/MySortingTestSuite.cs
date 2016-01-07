@@ -4,6 +4,12 @@ namespace KeepPractising.Sorting
 {
     class MySortingTestSuite
     {
+        private static void PrintArray<T>(T[] arr)
+        {
+            foreach (var item in arr)
+                Console.WriteLine(item);
+        }
+
         public static void TestQuickSort()
         {
             string str = "TESTQUICKSORT";
@@ -14,18 +20,15 @@ namespace KeepPractising.Sorting
 
             var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
             Console.WriteLine("\nInitial array:-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
 
             arr.QuickSort(2, 8);
             Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
 
             arr.QuickSort();
             Console.WriteLine("\nSorted array:-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
         }
 
         public static void TestMergeSort()
@@ -38,18 +41,15 @@ namespace KeepPractising.Sorting
 
             var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
             Console.WriteLine("\nInitial array:-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
 
             arr.MergeSort(2, 8);
             Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
 
             arr.MergeSort();
             Console.WriteLine("\nSorted array:-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
         }
 
         public static void TestHeapSort()
@@ -62,19 +62,82 @@ namespace KeepPractising.Sorting
 
             var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
             Console.WriteLine("\nInitial array:-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
 
             arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
             arr.HeapSort(2, 8);
             Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
 
             arr.HeapSort();
             Console.WriteLine("\nSorted array:-");
-            foreach (var item in arr)
-                Console.WriteLine(item);
+            PrintArray(arr);
+        }
+
+        public static void TestSelectionSort()
+        {
+            string str = "TESTSELECTIONSORT";
+            Console.WriteLine(str);
+
+            Console.WriteLine("Sorted string from 2nd index to 9th index - " + str.SelectionSort(2, 9));
+            Console.WriteLine("Sorted string - " + str.SelectionSort());
+
+            var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
+            Console.WriteLine("\nInitial array:-");
+            PrintArray(arr);
+
+            arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
+            arr.SelectionSort(2, 8);
+            Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
+            PrintArray(arr);
+
+            arr.SelectionSort();
+            Console.WriteLine("\nSorted array:-");
+            PrintArray(arr);
+        }
+
+        public static void TestInsertionSort()
+        {
+            string str = "TESTINSERTIONSORT";
+            Console.WriteLine(str);
+
+            Console.WriteLine("Sorted string from 2nd index to 9th index - " + str.InsertionSort(2, 9));
+            Console.WriteLine("Sorted string - " + str.InsertionSort());
+
+            var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
+            Console.WriteLine("\nInitial array:-");
+            PrintArray(arr);
+
+            arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
+            arr.InsertionSort(2, 8);
+            Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
+            PrintArray(arr);
+
+            arr.InsertionSort();
+            Console.WriteLine("\nSorted array:-");
+            PrintArray(arr);
+        }
+
+        public static void TestPancakeSort()
+        {
+            string str = "TESTPANCAKESORT";
+            Console.WriteLine(str);
+
+            Console.WriteLine("Sorted string from 2nd index to 9th index - " + str.PancakeSort(2, 9));
+            Console.WriteLine("Sorted string - " + str.PancakeSort());
+
+            var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
+            Console.WriteLine("\nInitial array:-");
+            PrintArray(arr);
+
+            arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
+            arr.PancakeSort(2, 8);
+            Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
+            PrintArray(arr);
+
+            arr.PancakeSort();
+            Console.WriteLine("\nSorted array:-");
+            PrintArray(arr);
         }
     }
 }

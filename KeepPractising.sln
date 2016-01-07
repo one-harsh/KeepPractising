@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepPractising", "KeepPractising\KeepPractising.csproj", "{443DE609-32A3-4E2E-8BCC-4DCFD9473A1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeepPractising.UnitTests", "KeepPractising.UnitTests\KeepPractising.UnitTests.csproj", "{98DA6D42-2A1E-4A02-8D52-817563E7C0DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{443DE609-32A3-4E2E-8BCC-4DCFD9473A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{443DE609-32A3-4E2E-8BCC-4DCFD9473A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{443DE609-32A3-4E2E-8BCC-4DCFD9473A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DA6D42-2A1E-4A02-8D52-817563E7C0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DA6D42-2A1E-4A02-8D52-817563E7C0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DA6D42-2A1E-4A02-8D52-817563E7C0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DA6D42-2A1E-4A02-8D52-817563E7C0DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
