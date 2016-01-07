@@ -117,27 +117,5 @@ namespace KeepPractising.Sorting
             Console.WriteLine("\nSorted array:-");
             PrintArray(arr);
         }
-
-        public static void TestPancakeSort()
-        {
-            string str = "TESTPANCAKESORT";
-            Console.WriteLine(str);
-
-            Console.WriteLine("Sorted string from 2nd index to 9th index - " + str.PancakeSort(2, 9));
-            Console.WriteLine("Sorted string - " + str.PancakeSort());
-
-            var arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
-            Console.WriteLine("\nInitial array:-");
-            PrintArray(arr);
-
-            arr = new int[] { 32, 12, 431, 4531, 123, 1, -42, 0, 42, -89 };
-            arr.PancakeSort(2, 8);
-            Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
-            PrintArray(arr);
-
-            arr.PancakeSort();
-            Console.WriteLine("\nSorted array:-");
-            PrintArray(arr);
-        }
     }
 }
