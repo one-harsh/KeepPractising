@@ -4,7 +4,7 @@
     {
         public static void Load()
         {
-            var referrefClass = typeof(Program);
+            Program dummy = new Program();
         }
     }
 }

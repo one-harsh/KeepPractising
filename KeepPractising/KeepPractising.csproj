@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />
+    <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
     <Compile Include="InterestingProblems\NumberOfDisksInWavyCircularWell.cs" />
     <Compile Include="LinkedLists\IntersectionPoint.cs" />
     <Compile Include="LinkedLists\LoopDetection.cs" />

@@ -27,6 +27,7 @@ namespace KeepPractising.UnitTests
 
             for (int i = 0; i < fields.Length - 1; i++) // Length - 1 because the enum index starts from 1
             {
+                // Not testing Threading test suite as testing it this way won't be a good idea.
                 if (classNames.GetValue(i).ToString() == "MyThreadingTestSuite")
                     continue;
 

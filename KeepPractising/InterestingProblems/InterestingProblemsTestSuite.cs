@@ -16,5 +16,113 @@ namespace KeepPractising.InterestingProblems
 
             Console.WriteLine("The number of disks that can be placed for the above condition is - " + count);
         }
+
+        public static void TestLargestSquareInBinaryMatrixUsingNaiveMethod()
+        {
+            int[,] image = new int[,]
+                                {
+                                    {1, 1, 1, 1, 1},
+                                    {0, 0, 1, 1, 1},
+                                    {0, 0, 1, 1, 1},
+                                    {1, 1, 0, 1, 1}
+                                };
+
+            var squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            var result = squareFinder.FindLargestSquareUsingNaiveApproach();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+            Console.WriteLine();
+
+            image = new int[,]
+                        {
+                            { 1, 0, 1, 1 },
+                            { 0, 1, 1, 1 },
+                            { 1, 0, 0, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            result = squareFinder.FindLargestSquareUsingNaiveApproach();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+            Console.WriteLine();
+
+            image = new int[,]
+                        {
+                            { 1, 0, 1, 0 },
+                            { 0, 1, 1, 1 },
+                            { 1, 0, 0, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            result = squareFinder.FindLargestSquareUsingNaiveApproach();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+
+            image = new int[,]
+                        {
+                            { 1, 1, 1, 0 },
+                            { 1, 1, 1, 1 },
+                            { 1, 1, 1, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            result = squareFinder.FindLargestSquareUsingNaiveApproach();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+        }
+
+        public static void TestLargestSquareInBinaryMatrixUsingDP()
+        {
+            int[,] image = new int[,]
+                                {
+                                    {1, 1, 1, 1, 1},
+                                    {0, 0, 1, 1, 1},
+                                    {0, 0, 1, 1, 1},
+                                    {1, 1, 0, 1, 1}
+                                };
+
+            var squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            var result = squareFinder.FindLargestSquareUsingDynamicProgramming();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+            Console.WriteLine();
+
+            image = new int[,]
+                        {
+                            { 1, 0, 1, 1 },
+                            { 0, 1, 1, 1 },
+                            { 1, 0, 0, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            result = squareFinder.FindLargestSquareUsingDynamicProgramming();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+            Console.WriteLine();
+
+            image = new int[,]
+                        {
+                            { 1, 0, 1, 0 },
+                            { 0, 1, 1, 1 },
+                            { 1, 0, 0, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            result = squareFinder.FindLargestSquareUsingDynamicProgramming();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+
+            image = new int[,]
+                        {
+                            { 1, 1, 1, 0 },
+                            { 1, 1, 1, 1 },
+                            { 1, 1, 1, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            squareFinder = new LargestSquareFinderInBinaryMatrix(image);
+            result = squareFinder.FindLargestSquareUsingDynamicProgramming();
+            Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
+            Console.WriteLine("Size of the square - " + result.Size);
+        }
     }
 }
