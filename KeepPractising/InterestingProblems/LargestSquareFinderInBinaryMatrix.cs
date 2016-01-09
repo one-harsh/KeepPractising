@@ -123,7 +123,7 @@ namespace KeepPractising.InterestingProblems
         public SquareResult FindLargestSquareUsingDynamicProgramming()
         {
             // Building upon the naive solution, a cell going downwards & rightwards, if is a part of a bigger square,
-            // it also would be part of a smaller square too with.
+            // it also would be part of a smaller square too.
             // We carry this information forward and find the biggest square.
 
             int[,] subSquareSize = new int[LengthX, LengthY];
@@ -138,8 +138,10 @@ namespace KeepPractising.InterestingProblems
             for (int j = 0; j < LengthY; j++)
                 subSquareSize[0, j] = Image[0, j];
 
-            // If a cell is a part of the square, all the cells above it and towards its left have also got to be the square's participant.
+            // If a cell is a part of the square, all the adjacent cells above it and towards its left have also got to be the square's participant.
             // The following loop takes this logic into account.
+            // Moreover, as all the cells have to be part of the square, the max size of the square the current cell can be a part of,
+            // would be decided by the cell which can be part of least number of squares, which would be 1 greater than the smallest count.
             for (int i = 1; i < LengthX; i++)
                 for (int j = 1; j < LengthY; j++)
                     if (Image[i, j] == 1)
