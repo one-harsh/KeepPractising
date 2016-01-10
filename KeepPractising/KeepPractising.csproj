@@ -59,6 +59,7 @@
     <Compile Include="Sorting\MyHeapSort.cs" />
     <Compile Include="Sorting\MyInsertionSort.cs" />
     <Compile Include="Sorting\MyMergeSort.cs" />
+    <Compile Include="Sorting\MyPancakeSort.cs" />
     <Compile Include="Sorting\MyQuickSort.cs" />
     <Compile Include="Sorting\MySelectionSort.cs" />
     <Compile Include="Sorting\MySortingTestSuite.cs" />

@@ -128,24 +128,14 @@ namespace KeepPractising.InterestingProblems
 
             int[,] subSquareSize = new int[LengthX, LengthY];
 
-            // As there is no cell available above the first row, so the max number of squares 
-            // a cell would be able to form until the cells already traversed would be either 0 or 1.
-            for (int i = 0; i < LengthX; i++)
-                subSquareSize[i, 0] = Image[i, 0];
-
-            // As there is no cell available above the first column, so the max number of squares 
-            // a cell would be able to form until the cells already traversed would be either 0 or 1.
-            for (int j = 0; j < LengthY; j++)
-                subSquareSize[0, j] = Image[0, j];
-
             // If a cell is a part of the square, all the adjacent cells above it and towards its left have also got to be the square's participant.
             // The following loop takes this logic into account.
             // Moreover, as all the cells have to be part of the square, the max size of the square the current cell can be a part of,
             // would be decided by the cell which can be part of least number of squares, which would be 1 greater than the smallest count.
-            for (int i = 1; i < LengthX; i++)
-                for (int j = 1; j < LengthY; j++)
+            for (int i = 0; i < LengthX; i++)
+                for (int j = 0; j < LengthY; j++)
                     if (Image[i, j] == 1)
-                        subSquareSize[i, j] = Math.Min(Math.Min(subSquareSize[i, j - 1], subSquareSize[i - 1, j]), subSquareSize[i - 1, j - 1]) + 1;
+                        subSquareSize[i, j] = Math.Min(Math.Min(GetValidSubSquareSize(subSquareSize, i, j -1), GetValidSubSquareSize(subSquareSize, i - 1, j)), GetValidSubSquareSize(subSquareSize, i - 1, j - 1)) + 1;
                     else
                         subSquareSize[i, j] = 0;
 
@@ -159,6 +149,19 @@ namespace KeepPractising.InterestingProblems
                     }
 
             return Result;
+        }
+
+        /// <summary>
+        /// Returns the valid size at given index stored in the array. 
+        /// If the co-ordinate of the cell itself is invalid, it returns 0.
+        /// </summary>
+        /// <param name="subSquareSize"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        private int GetValidSubSquareSize(int[,] subSquareSize, int i, int j)
+        {
+            return i < 0 || j < 0 ? 0 : subSquareSize[i, j];
         }
         #endregion
     }
