@@ -67,6 +67,8 @@
     <Compile Include="Stacks\MyStack.cs" />
     <Compile Include="Stacks\MyStacksTestSuite.cs" />
     <Compile Include="Strings\FirstNonRepeatingCharacter.cs" />
+    <Compile Include="Strings\LongestCommonSubsequence.cs" />
+    <Compile Include="Strings\LongestCommonSubstring.cs" />
     <Compile Include="Strings\Permutations.cs" />
     <Compile Include="Strings\StringsTestSuite.cs" />
     <Compile Include="Strings\Swap.cs" />
