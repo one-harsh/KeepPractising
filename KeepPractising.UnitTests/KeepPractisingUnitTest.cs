@@ -22,10 +22,9 @@ namespace KeepPractising.UnitTests
         [TestMethod]
         public void TestAllSuccessfulTestSuiteMethodRunsExceptThreadingProblems()
         {
-            var fields = testSuiteEnumType.GetFields().ToArray();
             var classNames = Enum.GetValues(testSuiteEnumType);
 
-            for (int i = 0; i < fields.Length - 1; i++) // Length - 1 because the enum index starts from 1
+            for (int i = 0; i < classNames.Length; i++)
             {
                 // Not testing Threading test suite as testing it this way won't be a good idea.
                 if (classNames.GetValue(i).ToString() == "MyThreadingTestSuite")
