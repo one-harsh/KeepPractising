@@ -74,6 +74,11 @@
     <Compile Include="Strings\Swap.cs" />
     <Compile Include="Threading\MyThreadingTestSuite.cs" />
     <Compile Include="Threading\ThreadpoolScheduler.cs" />
+    <Compile Include="Trees\InOrderTraversal.cs" />
+    <Compile Include="Trees\MyTreeTestSuite.cs" />
+    <Compile Include="Trees\PostOrderTraversal.cs" />
+    <Compile Include="Trees\PreOrderTraversal.cs" />
+    <Compile Include="Trees\MyTreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

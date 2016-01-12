@@ -28,6 +28,9 @@ All other classes in this namespace solve a queue related problem.
 ### Strings
 *Strings* namespace contains some problems based on string manipulation.
 
+### Trees
+*Trees* namespace contains some tree based problems. The class **MyTreeNode** contains a generic tree structure implementation which is used throughout the project to create a tree.
+
 ### Matrix
 *Matrix* namespace contains solutions to problems which require matrix for their representation and/or involve graphs.
 

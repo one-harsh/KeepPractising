@@ -43,5 +43,10 @@ namespace KeepPractising.Queues
             else
                 throw new Exception("Peek operation not allowed on empty queue!");
         }
+
+        public bool Empty()
+        {
+            return list.Length == 0;
+        }
     }
 }

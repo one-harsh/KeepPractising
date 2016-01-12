@@ -46,5 +46,10 @@ namespace KeepPractising.Stacks
             else
                 throw new Exception("Peek operation not allowed on empty stack!");
         }
+
+        public bool Empty()
+        {
+            return list.Length == 0;
+        }
     }
 }

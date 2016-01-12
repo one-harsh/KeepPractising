@@ -6,23 +6,25 @@ namespace KeepPractising.Threading
 {
     public class ThreadpoolScheduler
     {
-        public void TrySchedulingAndProcessing(int workerThreads, int completionPortThreads)
+        public ThreadpoolScheduler(int tasksCount)
         {
-            ManualResetEvent[] doneEvents = new ManualResetEvent[50];
+            TasksCount = tasksCount;
+        }
 
+        public int TasksCount { get; private set; }
+
+        public void TrySchedulingAndProcessing(int workerThreads, int completionPortThreads, Action processingAction)
+        {
+            ManualResetEvent[] doneEvents = new ManualResetEvent[TasksCount];
             bool setMaxWorkerThreads = ThreadPool.SetMaxThreads(workerThreads, completionPortThreads);
-            Random rand = new Random();
 
             Console.WriteLine("Scheduling some long running tasks!");
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < TasksCount; i++)
             {
                 doneEvents[i] = new ManualResetEvent(false);
 
-                ThreadPoolFibonacci tFib = new ThreadPoolFibonacci(doneEvents[i])
-                {
-                    Number = rand.Next(100, 450)
-                };
-                ThreadPool.QueueUserWorkItem(new WaitCallback(tFib.SomeLongTask), i);
+                ThreadPoolProcessor processor = new ThreadPoolProcessor(doneEvents[i], processingAction);
+                ThreadPool.QueueUserWorkItem(new WaitCallback(processor.SomeLongTask), i);
             }
 
             WaitHandle.WaitAll(doneEvents);
@@ -30,43 +32,28 @@ namespace KeepPractising.Threading
         }
     }
 
-    public class ThreadPoolFibonacci
+    public class ThreadPoolProcessor
     {
         private ManualResetEvent _doneEvenet;
+        private Action _processingAction;
 
-        public ThreadPoolFibonacci(ManualResetEvent doneEvent)
+        public ThreadPoolProcessor(ManualResetEvent doneEvent, Action processingAction)
         {
             _doneEvenet = doneEvent;
+            _processingAction = processingAction;
         }
-
-        public int Number { get; set; }
 
         public void SomeLongTask(object state)
         {
+            Console.WriteLine((int)state + " thread started!");
             Stopwatch wtch = new Stopwatch();
             wtch.Start();
 
-            Thread.Sleep(10000);
-            Console.WriteLine((int)state + " started for number - " + Number);
-
-            long a = 1, b = 1;
-            int num = Number;
-
-            if (num <= 0)
-                Console.WriteLine(-1);
-
-            while (num > 2)
-            {
-                long temp = a;
-                a = b;
-                b = a + temp;
-
-                num--;
-            }
+            _processingAction.Invoke();
 
             wtch.Stop();
-            Console.WriteLine((int)state + " thread! " + Number + " fibonacci number - " + b);
             Console.WriteLine("Milliseconds elapsed for state " + (int)state + " is - " + wtch.ElapsedMilliseconds);
+            Console.WriteLine((int)state + " thread completed!");
             _doneEvenet.Set();
         }
     }

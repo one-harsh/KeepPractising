@@ -49,8 +49,9 @@ namespace KeepPractising
         MyStacksTestSuite = 3,
         MyQueuesTestSuite = 4,
         StringsTestSuite = 5,
-        MyMatrixTestSuite = 6,
-        MyThreadingTestSuite = 7,
-        InterestingProblemsTestSuite = 8
+        MyTreeTestSuite = 6,
+        MyMatrixTestSuite = 7,
+        MyThreadingTestSuite = 8,
+        InterestingProblemsTestSuite = 9
     }
 }
