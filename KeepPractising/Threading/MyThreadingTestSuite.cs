@@ -19,9 +19,6 @@ namespace KeepPractising.Threading
                 int num = Random.Next(100, 450);
                 long a = 1, b = 1;
 
-                if (num <= 0)
-                    Console.WriteLine(-1);
-
                 while (num > 2)
                 {
                     long temp = a;
@@ -42,6 +39,12 @@ namespace KeepPractising.Threading
             scheduler.TrySchedulingAndProcessing(10, 15, test.GetLongRunningAction());
 
             Console.WriteLine("Main thread work done!");
+        }
+
+        public static void TestSynchronizeOutput()
+        {
+            SynchronizeOutput sync = new SynchronizeOutput(5);
+            sync.ProducePrintStream();
         }
     }
 }

@@ -124,5 +124,12 @@ namespace KeepPractising.InterestingProblems
             Console.WriteLine(string.Format("Top-left cordinate of the square - ({0}, {1})", result.Top, result.Left));
             Console.WriteLine("Size of the square - " + result.Size);
         }
+
+        public static void TestMaximumSumSubArray()
+        {
+            var arr = new int[] { -2, -3, 4, -1, -2, 1, 5, -3 };
+            MaxSumSubArray maxSum = new MaxSumSubArray();
+            Console.WriteLine(maxSum.FindMaximumSumSubArray(arr));
+        }
     }
 }

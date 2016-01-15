@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />
     <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
+    <Compile Include="InterestingProblems\MaxSumSubArray.cs" />
     <Compile Include="InterestingProblems\NumberOfDisksInWavyCircularWell.cs" />
     <Compile Include="LinkedLists\IntersectionPoint.cs" />
     <Compile Include="LinkedLists\LoopDetection.cs" />
@@ -72,7 +73,10 @@
     <Compile Include="Strings\Permutations.cs" />
     <Compile Include="Strings\StringsTestSuite.cs" />
     <Compile Include="Strings\Swap.cs" />
+    <Compile Include="Threading\MyMutex.cs" />
     <Compile Include="Threading\MyThreadingTestSuite.cs" />
+    <Compile Include="Threading\MySemaphore.cs" />
+    <Compile Include="Threading\SynchronizeOutput.cs" />
     <Compile Include="Threading\ThreadpoolScheduler.cs" />
     <Compile Include="Trees\InOrderTraversal.cs" />
     <Compile Include="Trees\MyTreeTestSuite.cs" />
