@@ -13,13 +13,11 @@ namespace KeepPractising.Threading
         MySemaphore[] semaphores;
 
         MyMutex mutex;
-        MySemaphore semaphore;
         MySemaphore turnstile1, turnstile2;
 
         public SynchronizeOutput(int threadCount)
         {
             ThreadCount = threadCount;
-            semaphore = new MySemaphore(1, 1);
             turnstile1 = new MySemaphore(0, 1);
             turnstile2 = new MySemaphore(1, 1);
             mutex = new MyMutex();
@@ -38,49 +36,47 @@ namespace KeepPractising.Threading
 
             semaphores[0].TryRelease();
 
-            while (true)
+            for (int i = 0; i < ThreadCount; i++)
             {
-                semaphore.Wait();
-                for (int i = 0; i < ThreadCount; i++)
-                {
-                    var streamNum = i + 1;
-                    System.Threading.Tasks.Task.Run(() => Print(streamNum));
-                }
+                var streamNum = i + 1;
+                System.Threading.Tasks.Task.Run(() => Print(streamNum));
             }
         }
 
         private void Print(int streamNum)
         {
-            mutex.Wait();
+            while (true)
+            {
+                mutex.Wait();
                 count++;
                 if (count == ThreadCount)
                 {
                     turnstile2.Wait();
                     turnstile1.TryRelease();
                 }
-            mutex.TryReleaseMutex();
+                mutex.TryReleaseMutex();
 
-            turnstile1.Wait();
-            turnstile1.TryRelease();
+                turnstile1.Wait();
+                turnstile1.TryRelease();
 
-            #region Critical Section
-            semaphores[streamNum - 1].Wait();
-            Console.Write(streamNum);
-            semaphores[streamNum % ThreadCount].TryRelease(); 
-            #endregion
+                #region Critical Section
+                semaphores[streamNum - 1].Wait();
+                Console.Write(streamNum);
+                semaphores[streamNum % ThreadCount].TryRelease();
+                #endregion
 
-            mutex.Wait();
+                mutex.Wait();
                 count--;
                 if (count == 0)
                 {
                     turnstile1.Wait();
                     turnstile2.TryRelease();
-                    semaphore.TryRelease();
                 }
-            mutex.TryReleaseMutex();
+                mutex.TryReleaseMutex();
 
-            turnstile2.Wait();
-            turnstile2.TryRelease();
+                turnstile2.Wait();
+                turnstile2.TryRelease(); 
+            }
         }
     }
 }
