@@ -3,24 +3,40 @@
     /// <summary>
     /// A simple mutex implementation.
     /// </summary>
-    /// Would re-implement in a better way.
     class MyMutex
     {
-        MySemaphore semaphore;
+        object lockObj;
+        bool isLocked;
 
         public MyMutex()
         {
-            semaphore = new MySemaphore(1, 1);
+            lockObj = new object();
+            isLocked = false;
         }
 
         public void Wait()
         {
-            semaphore.Wait();
+            lock (lockObj)
+            {
+                while (isLocked)
+                    System.Threading.Monitor.Wait(lockObj);
+
+                isLocked = true;
+            }
         }
 
         public bool TryReleaseMutex()
         {
-            return semaphore.TryRelease();
+            lock (lockObj)
+            {
+                if (isLocked)
+                {
+                    isLocked = false;
+                    System.Threading.Monitor.Pulse(lockObj);
+                    return true;
+                }
+                return false;
+            }
         }
     }
 }

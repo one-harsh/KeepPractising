@@ -48,12 +48,12 @@ namespace KeepPractising.Threading
             while (true)
             {
                 mutex.Wait();
-                count++;
-                if (count == ThreadCount)
-                {
-                    turnstile2.Wait();
-                    turnstile1.TryRelease();
-                }
+                    count++;
+                    if (count == ThreadCount)
+                    {
+                        turnstile2.Wait();
+                        turnstile1.TryRelease();
+                    }
                 mutex.TryReleaseMutex();
 
                 turnstile1.Wait();
@@ -66,12 +66,12 @@ namespace KeepPractising.Threading
                 #endregion
 
                 mutex.Wait();
-                count--;
-                if (count == 0)
-                {
-                    turnstile1.Wait();
-                    turnstile2.TryRelease();
-                }
+                    count--;
+                    if (count == 0)
+                    {
+                        turnstile1.Wait();
+                        turnstile2.TryRelease();
+                    }
                 mutex.TryReleaseMutex();
 
                 turnstile2.Wait();
