@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphs\BreadthFirstTraversalOfGraph.cs" />
+    <Compile Include="Graphs\DepthFirstTraversalOfGraph.cs" />
     <Compile Include="Graphs\MyGraph.cs" />
     <Compile Include="Graphs\MyGraphNode.cs" />
     <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />

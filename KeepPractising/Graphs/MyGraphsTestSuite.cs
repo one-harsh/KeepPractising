@@ -37,5 +37,11 @@ namespace KeepPractising.Graphs
             var graph = GetADummyGraph();
             new BreadthFirstTraversalOfGraph().BFTraversal(graph.Nodes[1] as MyGraphNode<int>);
         }
+
+        public static void TestDepthFirstTraversal()
+        {
+            var graph = GetADummyGraph();
+            new DepthFirstTraversalOfGraph().DFTraversal(graph.Nodes[1] as MyGraphNode<int>);
+        }
     }
 }

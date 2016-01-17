@@ -1,29 +1,31 @@
-﻿using KeepPractising.Queues;
+﻿using KeepPractising.Stacks;
 using System;
 using System.Collections.Generic;
 
 namespace KeepPractising.Graphs
 {
-    class BreadthFirstTraversalOfGraph
+    class DepthFirstTraversalOfGraph
     {
-        public void BFTraversal<T>(MyGraphNode<T> root)
+        public void DFTraversal<T>(MyGraphNode<T> root)
         {
-            var queue = new MyQueue<MyGraphNode<T>>();
             var visitedSet = new HashSet<MyGraphNode<T>>();
+            var stack = new MyStack<MyGraphNode<T>>();
+            var vertex = root;
 
-            queue.Enqueue(root);
+            stack.Push(root);
             visitedSet.Add(root);
 
-            while (!queue.Empty())
+            while (!stack.Empty())
             {
-                var vertex = queue.Dequeue();
+                vertex = stack.Pop();
                 Console.WriteLine(vertex.Data);
+
                 foreach (MyGraphNode<T> node in vertex.Neighbors)
                 {
                     if (!visitedSet.Contains(node))
                     {
                         visitedSet.Add(node);
-                        queue.Enqueue(node);
+                        stack.Push(node);
                     }
                 }
             }
