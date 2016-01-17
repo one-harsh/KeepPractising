@@ -1,4 +1,4 @@
-﻿namespace KeepPractising.Matrix
+﻿namespace KeepPractising.InterestingProblems
 {
     public class RatInAMaze
     {

@@ -50,7 +50,7 @@ namespace KeepPractising
         MyQueuesTestSuite = 4,
         StringsTestSuite = 5,
         MyTreeTestSuite = 6,
-        MyMatrixTestSuite = 7,
+        MyGraphsTestSuite = 7,
         MyThreadingTestSuite = 8,
         InterestingProblemsTestSuite = 9
     }

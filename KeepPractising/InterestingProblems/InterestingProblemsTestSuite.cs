@@ -4,6 +4,37 @@ namespace KeepPractising.InterestingProblems
 {
     class InterestingProblemsTestSuite
     {
+        private static void PrintPath(int[,] path)
+        {
+            if (path[0, 0] == 0)
+            {
+                Console.WriteLine("No such path exists!");
+                return;
+            }
+
+            for (int i = 0; i < path.GetLength(0); i++)
+            {
+                for (int j = 0; j < path.GetLength(1); j++)
+                    Console.Write(" " + path[i, j] + " ");
+
+                Console.WriteLine();
+            }
+        }
+
+        public static void TestRatInMazeUsingBacktracking()
+        {
+            var maze = new int[,] {
+                                    { 1, 0, 0, 0, 1 },
+                                    { 1, 1, 1, 0, 0 },
+                                    { 1, 1, 0, 0, 1 },
+                                    { 0, 1, 1, 1, 1 }
+                                };
+
+            var ratInMaze = new RatInAMaze(maze);
+            var path = ratInMaze.FindPathUsingBackTracking();
+            PrintPath(path);
+        }
+
         public static void TestDiskPlacingInWavyWell()
         {
             Console.WriteLine("The well's ring radius from top to bottom is taken as - { 5, 6, 7, 3, 4, 7 }.");

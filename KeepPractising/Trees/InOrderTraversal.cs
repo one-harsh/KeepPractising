@@ -5,25 +5,25 @@ namespace KeepPractising.Trees
 {
     class InOrderTraversal<T>
     {
-        public InOrderTraversal(MyTreeNode<T> root)
+        public InOrderTraversal(MyBinaryTree<T> tree)
         {
-            Root = root;
+            Tree = tree;
         }
 
-        public MyTreeNode<T> Root { get; private set; }
+        public MyBinaryTree<T> Tree { get; private set; }
 
         public void PrintInOrderRecursively()
         {
-            if (Root == null)
+            if (Tree == null)
             {
                 Console.WriteLine("The tree is empty!");
                 return;
             }
 
-            PrintTraversalRecursively(Root);
+            PrintTraversalRecursively(Tree.Root);
         }
 
-        private void PrintTraversalRecursively(MyTreeNode<T> root)
+        private void PrintTraversalRecursively(MyBinaryTreeNode<T> root)
         {
             if (root == null)
                 return;
@@ -35,14 +35,14 @@ namespace KeepPractising.Trees
 
         public void PrintInOrderIteratively()
         {
-            if (Root == null)
+            if (Tree == null)
             {
                 Console.WriteLine("The tree is empty!");
                 return;
             }
 
-            var stack = new MyStack<MyTreeNode<T>>();
-            var node = Root;
+            var stack = new MyStack<MyBinaryTreeNode<T>>();
+            var node = Tree.Root;
 
             stack.Push(node);
             while(!stack.Empty())
