@@ -46,6 +46,7 @@
     <Compile Include="Graphs\DepthFirstTraversalOfGraph.cs" />
     <Compile Include="Graphs\MyGraph.cs" />
     <Compile Include="Graphs\MyGraphNode.cs" />
+    <Compile Include="Graphs\TopologicalSort.cs" />
     <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />
     <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
     <Compile Include="InterestingProblems\MaxSumSubArray.cs" />
