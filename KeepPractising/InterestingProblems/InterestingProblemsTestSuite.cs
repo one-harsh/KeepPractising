@@ -162,5 +162,37 @@ namespace KeepPractising.InterestingProblems
             MaxSumSubArray maxSum = new MaxSumSubArray();
             Console.WriteLine(maxSum.FindMaximumSumSubArray(arr));
         }
+
+        public static void TestClusterSizeMedianOfBinaryMatrix()
+        {
+            int[,] grid = new int[,]
+                                {
+                                    {1, 1, 1, 1, 1},
+                                    {0, 0, 1, 1, 1},
+                                    {0, 0, 1, 0, 0},
+                                    {1, 1, 0, 1, 1}
+                                };
+
+            var median = new MedianOfClustersSizeInGrid();
+            Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
+
+            grid = new int[,]
+                        {
+                            { 1, 1, 1, 0 },
+                            { 1, 1, 1, 1 },
+                            { 1, 1, 1, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
+
+            grid = new int[,]
+                        {
+                            { 1, 0, 1, 0 },
+                            { 0, 1, 1, 1 },
+                            { 1, 0, 0, 1 },
+                            { 0, 1, 1, 0 }
+                        };
+            Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
+        }
     }
 }

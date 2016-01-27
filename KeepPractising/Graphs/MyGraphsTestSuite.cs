@@ -13,13 +13,13 @@ namespace KeepPractising.Graphs
             graph.AddNode(40);
             graph.AddNode(50);
 
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(10) as MyGraphNode<int>, graph.Nodes.FindByData(20) as MyGraphNode<int>, 5);
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(10) as MyGraphNode<int>, graph.Nodes.FindByData(30) as MyGraphNode<int>, 5);
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(10) as MyGraphNode<int>, graph.Nodes.FindByData(40) as MyGraphNode<int>, 5);
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(20) as MyGraphNode<int>, graph.Nodes.FindByData(30) as MyGraphNode<int>, 5);
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(20) as MyGraphNode<int>, graph.Nodes.FindByData(50) as MyGraphNode<int>, 5);
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(30) as MyGraphNode<int>, graph.Nodes.FindByData(40) as MyGraphNode<int>, 5);
-            graph.AddUndirectedEdge(graph.Nodes.FindByData(30) as MyGraphNode<int>, graph.Nodes.FindByData(50) as MyGraphNode<int>, 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(10), graph.Nodes.FindByData(20), 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(10), graph.Nodes.FindByData(30), 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(10), graph.Nodes.FindByData(40), 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(20), graph.Nodes.FindByData(30), 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(20), graph.Nodes.FindByData(50), 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(30), graph.Nodes.FindByData(40), 5);
+            graph.AddUndirectedEdge(graph.Nodes.FindByData(30), graph.Nodes.FindByData(50), 5);
 
             /*
                        10
@@ -41,13 +41,13 @@ namespace KeepPractising.Graphs
             graph.AddNode(40);
             graph.AddNode(50);
 
-            graph.AddDirectedEdge(graph.Nodes.FindByData(10) as MyGraphNode<int>, graph.Nodes.FindByData(30) as MyGraphNode<int>, 5);
-            graph.AddDirectedEdge(graph.Nodes.FindByData(10) as MyGraphNode<int>, graph.Nodes.FindByData(40) as MyGraphNode<int>, 5);
-            graph.AddDirectedEdge(graph.Nodes.FindByData(20) as MyGraphNode<int>, graph.Nodes.FindByData(10) as MyGraphNode<int>, 5);
-            graph.AddDirectedEdge(graph.Nodes.FindByData(20) as MyGraphNode<int>, graph.Nodes.FindByData(30) as MyGraphNode<int>, 5);
-            graph.AddDirectedEdge(graph.Nodes.FindByData(20) as MyGraphNode<int>, graph.Nodes.FindByData(50) as MyGraphNode<int>, 5);
-            graph.AddDirectedEdge(graph.Nodes.FindByData(30) as MyGraphNode<int>, graph.Nodes.FindByData(40) as MyGraphNode<int>, 5);
-            graph.AddDirectedEdge(graph.Nodes.FindByData(30) as MyGraphNode<int>, graph.Nodes.FindByData(50) as MyGraphNode<int>, 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(10), graph.Nodes.FindByData(30), 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(10), graph.Nodes.FindByData(40), 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(20), graph.Nodes.FindByData(10), 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(20), graph.Nodes.FindByData(30), 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(20), graph.Nodes.FindByData(50), 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(30), graph.Nodes.FindByData(40), 5);
+            graph.AddDirectedEdge(graph.Nodes.FindByData(30), graph.Nodes.FindByData(50), 5);
 
             /*
                           10
