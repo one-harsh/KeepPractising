@@ -6,7 +6,7 @@ namespace KeepPractising.Sorting
     {
         public static void PancakeSort<T>(this T[] pancakes, int topIndex = -1, int bottomIndex = -1) where T : IComparable, IEquatable<T>
         {
-            if (pancakes == null)
+            if (pancakes == null || pancakes.Length == 0)
                 return;
 
             topIndex = topIndex == -1 ? 0 : topIndex;

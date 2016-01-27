@@ -78,6 +78,9 @@ namespace KeepPractising.InterestingProblems
                 }
             }
 
+            if (sizes.Count == 0)
+                return 0;
+
             var temp = sizes.ToArray();
             temp.QuickSort();
 

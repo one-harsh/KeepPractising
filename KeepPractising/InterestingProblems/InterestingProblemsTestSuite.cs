@@ -193,6 +193,18 @@ namespace KeepPractising.InterestingProblems
                             { 0, 1, 1, 0 }
                         };
             Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
+
+            grid = new int[,]
+                        {
+                            { 0, 0, 0, 0 },
+                            { 0, 0, 0, 0 },
+                            { 0, 0, 0, 0 },
+                            { 0, 0, 0, 0 }
+                        };
+            Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
+
+            grid = new int[,] { };
+            Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
         }
     }
 }

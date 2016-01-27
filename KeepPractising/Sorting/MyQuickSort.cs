@@ -13,7 +13,7 @@ namespace KeepPractising.Sorting
         /// <param name="endIndex"></param>
         public static void QuickSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
         {
-            if (items == null)
+            if (items == null || items.Length == 0)
                 return;
 
             startIndex = startIndex == -1 ? 0 : startIndex;

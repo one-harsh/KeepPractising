@@ -6,7 +6,7 @@ namespace KeepPractising.Sorting
     {
         public static void InsertionSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
         {
-            if (items == null)
+            if (items == null || items.Length == 0)
                 return;
 
             startIndex = startIndex == -1 ? 0 : startIndex;
