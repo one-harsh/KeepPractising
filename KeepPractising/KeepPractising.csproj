@@ -52,6 +52,7 @@
     <Compile Include="InterestingProblems\MaxSumSubArray.cs" />
     <Compile Include="InterestingProblems\MedianOfClustersSizeInGrid.cs" />
     <Compile Include="InterestingProblems\NumberOfDisksInWavyCircularWell.cs" />
+    <Compile Include="InterestingProblems\WordsInCrossword.cs" />
     <Compile Include="LinkedLists\IntersectionPoint.cs" />
     <Compile Include="LinkedLists\LoopDetection.cs" />
     <Compile Include="LinkedLists\MyLinkedList.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Trees\MyBinaryTree.cs" />
     <Compile Include="Trees\MyTree.cs" />
     <Compile Include="Trees\MyTreeTestSuite.cs" />
+    <Compile Include="Trees\MyTrie.cs" />
     <Compile Include="Trees\NodeList.cs" />
     <Compile Include="Trees\PostOrderTraversal.cs" />
     <Compile Include="Trees\PreOrderTraversal.cs" />
@@ -98,6 +100,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\5000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

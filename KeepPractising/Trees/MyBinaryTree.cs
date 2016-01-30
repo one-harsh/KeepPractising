@@ -1,12 +1,13 @@
 ﻿namespace KeepPractising.Trees
 {
-    public class MyBinaryTree<T>
+    public class MyBinaryTree<T> : MyTree<T>
     {
-        public MyBinaryTreeNode<T> Root { get; set; }
+        public new MyBinaryTreeNode<T> Root { get; set; }
 
-        public void Clear()
+        public new void Clear()
         {
             Root = null;
+            base.Clear();
         }
     }
 
@@ -18,6 +19,21 @@
             Neighbors = new NodeList<T>(2);
             Neighbors[0] = LeftNode;
             Neighbors[1] = RightNode;
+        }
+
+        public new NodeList<T> Neighbors
+        {
+            get
+            {
+                return base.Neighbors;
+            }
+            set
+            {
+                if (value.Count > 2)
+                    throw new System.Exception("Binary Trees cannot have more than 2 nodes.");
+
+                base.Neighbors = value;
+            }
         }
 
         public MyBinaryTreeNode<T> LeftNode

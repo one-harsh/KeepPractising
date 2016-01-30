@@ -206,5 +206,19 @@ namespace KeepPractising.InterestingProblems
             grid = new int[,] { };
             Console.WriteLine(median.FindClusterSizeMedianOfBinaryMatrixGrid(grid));
         }
+
+        public static void TestFindAllWordsInCrossword()
+        {
+            var crossWordSolver = new WordsInCrossword();
+            char[,] crosswordGrid = new char[,]
+                                {
+                                    { 'G', 'e', 'i', 't', 's' },
+                                    { 'e', 'k', 's', 'n', 'g'},
+                                    { 'W', 'd', 'i', 'l', 'l'},
+                                    { 'o', 'r', 's', 'o', 't'}
+                                };
+
+            crossWordSolver.FindAllWords(crosswordGrid);
+        }
     }
 }
