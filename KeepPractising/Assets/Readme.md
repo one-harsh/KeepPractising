@@ -1,0 +1,1 @@
+The list of 5000 words in the file - "5000.txt" has been taken from a publically available list wordfrequency.info.
