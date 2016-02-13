@@ -1,6 +1,4 @@
-﻿using KeepPractising.Graphs;
-using KeepPractising.Stacks;
-using KeepPractising.Trees;
+﻿using KeepPractising.Trees;
 using System;
 using System.Collections.Generic;
 

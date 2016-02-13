@@ -4,7 +4,7 @@ namespace KeepPractising.Sorting
 {
     public static class MyPancakeSort
     {
-        public static void PancakeSort<T>(this T[] pancakes, int topIndex = -1, int bottomIndex = -1) where T : IComparable, IEquatable<T>
+        public static void PancakeSort<T>(this T[] pancakes, int topIndex = -1, int bottomIndex = -1) where T : IComparable<T>, IEquatable<T>
         {
             if (pancakes == null || pancakes.Length == 0)
                 return;
@@ -49,7 +49,7 @@ namespace KeepPractising.Sorting
             return string.Join("", copyArr);
         }
 
-        private static void Sort<T>(T[] pancakes) where T : IComparable, IEquatable<T>
+        private static void Sort<T>(T[] pancakes) where T : IComparable<T>, IEquatable<T>
         {
             int topIndex = 0, bottomIndex = pancakes.Length - 1;
 
@@ -65,7 +65,7 @@ namespace KeepPractising.Sorting
             }
         }
 
-        private static int FindPancakesSubStackMaxIndex<T>(T[] pancakes, int topIndex, int currentStackSize) where T : IComparable, IEquatable<T>
+        private static int FindPancakesSubStackMaxIndex<T>(T[] pancakes, int topIndex, int currentStackSize) where T : IComparable<T>, IEquatable<T>
         {
             int maxSizeIndex = 0;
             for (int i = topIndex; i < topIndex + currentStackSize; i++)

@@ -11,7 +11,7 @@ namespace KeepPractising.Sorting
         /// <param name="items"></param>
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
-        public static void HeapSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
+        public static void HeapSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable<T>, IEquatable<T>
         {
             if (items == null || items.Length == 0)
                 return;
@@ -61,7 +61,7 @@ namespace KeepPractising.Sorting
             return string.Join("", copyArr);
         }
 
-        private static void Sort<T>(T[] items) where T : IComparable, IEquatable<T>
+        private static void Sort<T>(T[] items) where T : IComparable<T>, IEquatable<T>
         {
             T temp;
 
@@ -84,12 +84,12 @@ namespace KeepPractising.Sorting
         /// <param name="arr"></param>
         /// <param name="root"></param>
         /// <param name="bottom"></param>
-        private static void FixDown<T>(T[] arr, int root, int bottom) where T : IComparable, IEquatable<T>
+        private static void FixDown<T>(T[] arr, int root, int bottom) where T : IComparable<T>, IEquatable<T>
         {
             T temp;
-            while(2 * root <= bottom)
+            while(2 * root + 1 <= bottom)
             {
-                var j = 2 * root;
+                var j = 2 * root + 1;
 
                 if (j < bottom && arr[j].CompareTo(arr[j + 1]) < 0)
                     j++;
@@ -111,11 +111,11 @@ namespace KeepPractising.Sorting
         /// <typeparam name="T"></typeparam>
         /// <param name="arr"></param>
         /// <param name="bottom"></param>
-        private static void FixUp<T>(T[] arr, int bottom) where T : IComparable, IEquatable<T> // Kept it if someone is interested in doing it the opposite way.
+        private static void FixUp<T>(T[] arr, int bottom) where T : IComparable<T>, IEquatable<T> // Kept it if someone is interested in doing it the opposite way.
         {
             T temp;
-            int k = bottom / 2, j = bottom;
-            while (k > 1)
+            int k = (bottom - 1) / 2, j = bottom;
+            while (k >= 0)
             {
                 if (arr[k].CompareTo(arr[j]) >= 0)
                     break;
@@ -125,7 +125,7 @@ namespace KeepPractising.Sorting
                 arr[j] = temp;
 
                 j = k;
-                k /= 2;
+                k = (k - 1) / 2;
             }
         }
     }

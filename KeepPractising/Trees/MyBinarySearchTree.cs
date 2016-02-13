@@ -2,7 +2,7 @@
 
 namespace KeepPractising.Trees
 {
-    public class MyBinarySearchTree<T> where T : IComparable, IEquatable<T>
+    public class MyBinarySearchTree<T> where T : IComparable<T>, IEquatable<T>
     {
         public MyBinarySearchTree(T rootData)
         {

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Graphs\BreadthFirstTraversalOfGraph.cs" />
     <Compile Include="Graphs\DepthFirstTraversalOfGraph.cs" />
+    <Compile Include="Graphs\DijkstraShortestPath.cs" />
     <Compile Include="Graphs\MyGraph.cs" />
     <Compile Include="Graphs\MyGraphNode.cs" />
     <Compile Include="Graphs\TopologicalSortExtension.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Threading\SynchronizeOutput.cs" />
     <Compile Include="Threading\ThreadpoolScheduler.cs" />
     <Compile Include="Trees\InOrderTraversal.cs" />
+    <Compile Include="Trees\Heap.cs" />
     <Compile Include="Trees\MyBinarySearchTree.cs" />
     <Compile Include="Trees\MyBinaryTree.cs" />
     <Compile Include="Trees\MyTree.cs" />

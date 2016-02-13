@@ -11,7 +11,7 @@ namespace KeepPractising.Sorting
         /// <param name="items"></param>
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
-        public static void MergeSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
+        public static void MergeSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable<T>, IEquatable<T>
         {
             if (items == null || items.Length == 0)
                 return;
@@ -41,7 +41,7 @@ namespace KeepPractising.Sorting
             return string.Join("", items);
         }
 
-        private static void Sort<T>(T[] items, int left, int right) where T : IComparable, IEquatable<T>
+        private static void Sort<T>(T[] items, int left, int right) where T : IComparable<T>, IEquatable<T>
         {
             if (left < right)
             {
@@ -52,7 +52,7 @@ namespace KeepPractising.Sorting
             }
         }
 
-        private static void MergePartitions<T>(T[] items, int left, int mid, int right) where T : IComparable, IEquatable<T>
+        private static void MergePartitions<T>(T[] items, int left, int mid, int right) where T : IComparable<T>, IEquatable<T>
         {
             int i, j, k = left;
 

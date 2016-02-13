@@ -4,7 +4,7 @@ namespace KeepPractising.Sorting
 {
     public static class MyInsertionSort
     {
-        public static void InsertionSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable, IEquatable<T>
+        public static void InsertionSort<T>(this T[] items, int startIndex = -1, int endIndex = -1) where T : IComparable<T>, IEquatable<T>
         {
             if (items == null || items.Length == 0)
                 return;
@@ -27,7 +27,7 @@ namespace KeepPractising.Sorting
             return string.Join("", items);
         }
 
-        private static void Sort<T>(T[] items, int startIndex, int endIndex) where T : IComparable, IEquatable<T>
+        private static void Sort<T>(T[] items, int startIndex, int endIndex) where T : IComparable<T>, IEquatable<T>
         {
             T key;
             int j = 0;
