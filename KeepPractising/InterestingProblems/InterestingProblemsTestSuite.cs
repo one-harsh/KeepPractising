@@ -220,5 +220,28 @@ namespace KeepPractising.InterestingProblems
 
             crossWordSolver.FindAllWords(crosswordGrid);
         }
+
+        public static void TestEnglishEquivalentOfGivenNumber()
+        {
+            var engEquivalent = new EnglishNumbers();
+            Console.Write("0 is ");
+            engEquivalent.PrintWord(0);
+            Console.Write("9999 is ");
+            engEquivalent.PrintWord(9999);
+            Console.Write("8 is ");
+            engEquivalent.PrintWord(8);
+            Console.Write("10 is ");
+            engEquivalent.PrintWord(10);
+            Console.Write("15 is ");
+            engEquivalent.PrintWord(15);
+            Console.Write("101 is ");
+            engEquivalent.PrintWord(101);
+            Console.Write("115 is ");
+            engEquivalent.PrintWord(115);
+            Console.Write("2115 is ");
+            engEquivalent.PrintWord(2115);
+            Console.Write("115685 is ");
+            engEquivalent.PrintWord(115685);
+        }
     }
 }

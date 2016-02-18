@@ -12,6 +12,9 @@ namespace KeepPractising.Strings
         /// <returns></returns>
         public static string FindLongestCommonSubsequence(this string str1, string str2)
         {
+            if (string.IsNullOrWhiteSpace(str1) || string.IsNullOrWhiteSpace(str2))
+                return string.Empty;
+
             var maxLengthArray = FindLCSubsequenceLengthArray(str1, str2);
             return FindLCSubsequenceString(str1, str2, maxLengthArray);
         }
@@ -19,7 +22,7 @@ namespace KeepPractising.Strings
         private static int[,] FindLCSubsequenceLengthArray(string str1, string str2)
         {
             int[,] suffix = new int[str1.Length, str2.Length];
-            int maxLength = 0, str1Indx = -1;
+            int maxLength = 0;
 
             for (int i = 0; i < str1.Length; i++)
             {
@@ -30,10 +33,7 @@ namespace KeepPractising.Strings
                     {
                         suffix[i, j] = GetValidSubsequenceCount(suffix, i - 1, j - 1) + 1;
                         if (maxLength < suffix[i, j])
-                        {
                             maxLength = suffix[i, j];
-                            str1Indx = i;
-                        }
                     }
                     else
                         suffix[i, j] = Math.Max(GetValidSubsequenceCount(suffix, i - 1, j), GetValidSubsequenceCount(suffix, i, j - 1));

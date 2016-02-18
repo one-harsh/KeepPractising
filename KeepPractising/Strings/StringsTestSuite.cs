@@ -36,5 +36,20 @@ namespace KeepPractising.Strings
 
             Console.WriteLine("Longest common suffix of \"{0}\" & \"{1}\" is \"{2}\".", str1, str2, str1.FindLongestCommonSubsequence(str2));
         }
+
+        public static void TestKMPPatternMatching()
+        {
+            var str = "This day is beautiful";
+            var pattern = "is";
+
+            var lst = str.KMPSearch(pattern);
+
+            Console.WriteLine("The given string is - \"{0}\"", str);
+            Console.WriteLine("The given pattern is - \"{0}\"", pattern);
+            Console.WriteLine();
+            Console.WriteLine("The start indices of the matching pattern are -");
+            foreach (var index in lst)
+                Console.WriteLine(index);
+        }
     }
 }

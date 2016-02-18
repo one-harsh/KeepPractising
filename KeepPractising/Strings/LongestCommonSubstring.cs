@@ -10,6 +10,9 @@
         /// <returns></returns>
         public static string FindLongestCommonSubstring(this string str1, string str2)
         {
+            if (string.IsNullOrWhiteSpace(str1) || string.IsNullOrWhiteSpace(str2))
+                return string.Empty;
+
             int[,] suffix = new int[str1.Length, str2.Length];
             int maxLength = 0, str1Indx = -1;
 

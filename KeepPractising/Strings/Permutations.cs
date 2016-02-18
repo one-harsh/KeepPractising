@@ -1,5 +1,4 @@
-﻿using KeepPractising.Sorting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace KeepPractising.Strings
@@ -23,6 +22,12 @@ namespace KeepPractising.Strings
         /// <param name="str">The string whose permutations are to be printed</param>
         public void PrintAllPermutationsWithoutRepetition(string str)
         {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                Console.WriteLine("Total number of permutations found - 0");
+                return;
+            }
+
             permutationsSet = new HashSet<string>();
             PermuteGivenString(str, 0, str.Length - 1);
             PrintPermutations();

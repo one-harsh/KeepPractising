@@ -1,4 +1,6 @@
-﻿namespace KeepPractising.Strings
+﻿using System.Text;
+
+namespace KeepPractising.Strings
 {
     public static class Swap
     {
@@ -12,11 +14,11 @@
         /// <returns></returns>
         public static string SwapCharacters(this string str, int i, int j)
         {
-            if (i >= str.Length || j >= str.Length || i < 0 || j < 0)
+            if (string.IsNullOrWhiteSpace(str) || i >= str.Length || j >= str.Length || i < 0 || j < 0)
                 return str;
-            
-            var newStr = string.Empty;
+
             var chr = '\0';
+            StringBuilder newString = new StringBuilder();
             for (int index = 0; index < str.Length; index++)
             {
                 if (index == i)
@@ -26,10 +28,10 @@
                 else
                     chr = str[index];
 
-                newStr += chr;
+                newString.Append(chr);
             }
 
-            return newStr;
+            return newString.ToString();
         }
     }
 }

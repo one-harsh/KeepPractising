@@ -48,6 +48,7 @@
     <Compile Include="Graphs\MyGraph.cs" />
     <Compile Include="Graphs\MyGraphNode.cs" />
     <Compile Include="Graphs\TopologicalSortExtension.cs" />
+    <Compile Include="InterestingProblems\EnglishNumbers.cs" />
     <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />
     <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
     <Compile Include="InterestingProblems\MaxSumSubArray.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Stacks\MyStack.cs" />
     <Compile Include="Stacks\MyStacksTestSuite.cs" />
     <Compile Include="Strings\FirstNonRepeatingCharacter.cs" />
+    <Compile Include="Strings\KMPPatternSearch.cs" />
     <Compile Include="Strings\LongestCommonSubsequence.cs" />
     <Compile Include="Strings\LongestCommonSubstring.cs" />
     <Compile Include="Strings\Permutations.cs" />
