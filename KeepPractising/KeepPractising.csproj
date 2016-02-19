@@ -53,6 +53,7 @@
     <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
     <Compile Include="InterestingProblems\MaxSumSubArray.cs" />
     <Compile Include="InterestingProblems\MedianOfClustersSizeInGrid.cs" />
+    <Compile Include="InterestingProblems\NonConsecutive1BinaryStrings.cs" />
     <Compile Include="InterestingProblems\NumberOfDisksInWavyCircularWell.cs" />
     <Compile Include="InterestingProblems\WordsInCrossword.cs" />
     <Compile Include="LinkedLists\IntersectionPoint.cs" />

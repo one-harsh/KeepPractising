@@ -243,5 +243,13 @@ namespace KeepPractising.InterestingProblems
             Console.Write("115685 is ");
             engEquivalent.PrintWord(115685);
         }
+
+        public static void TestNonConsecutive1CountInBinaryStrings()
+        {
+            var obj = new NonConsecutive1BinaryStrings();
+            Console.WriteLine("For length 0 - " + obj.CountBinaryStringsNonConsecutive1s(0));
+            Console.WriteLine("For length 2 - " + obj.CountBinaryStringsNonConsecutive1s(2));
+            Console.WriteLine("For length 100 - " + obj.CountBinaryStringsNonConsecutive1s(100));
+        }
     }
 }
