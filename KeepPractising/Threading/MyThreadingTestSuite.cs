@@ -35,9 +35,9 @@ namespace KeepPractising.Threading
 
         public static void TestThreadpoolScheduler()
         {
-            MyThreadingTestSuite test = new MyThreadingTestSuite();
+            var test = new MyThreadingTestSuite();
 
-            ThreadpoolScheduler scheduler = new ThreadpoolScheduler(50);
+            var scheduler = new ThreadpoolScheduler(50);
             scheduler.TrySchedulingAndProcessing(10, 15, test.GetLongRunningAction());
 
             Console.WriteLine("Main thread work done!");
@@ -45,9 +45,9 @@ namespace KeepPractising.Threading
 
         public static void TestSemaphoreScheduler()
         {
-            MyThreadingTestSuite test = new MyThreadingTestSuite();
+            var test = new MyThreadingTestSuite();
 
-            SemaphoreScheduler scheduler = new SemaphoreScheduler(50);
+            var scheduler = new SemaphoreScheduler(50);
             scheduler.TrySchedulingAndProcessing(10, test.GetLongRunningAction());
 
             Console.WriteLine("Main thread work done!");
@@ -55,8 +55,22 @@ namespace KeepPractising.Threading
 
         public static void TestSynchronizeOutput()
         {
-            SynchronizeOutput sync = new SynchronizeOutput(5);
+            var sync = new SynchronizeOutput(5);
             sync.ProducePrintStream();
+        }
+
+        public static void TestProducerConsumer()
+        {
+            var test = new MyThreadingTestSuite();
+            var processor = new Action<int>((i) => { Console.WriteLine("\t\t\tConsuming " + i); });
+            var job = new MyDummyProducerConsumer<int>(2, processor);
+            var limit = test.Random.Next(100);
+
+            for (int i = 0; i < limit; i++)
+                job.Produce(test.Random.Next());
+
+            job.Produce(0);
+            job.Produce(0);
         }
     }
 }
