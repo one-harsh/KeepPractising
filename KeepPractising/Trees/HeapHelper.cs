@@ -150,7 +150,10 @@ namespace KeepPractising.Trees
             T temp;
             int tempPos;
             arr.Add(data);
-            positionDictionary.Add(data, arr.Count - 1);
+
+            if (positionDictionary != null)
+                positionDictionary.Add(data, arr.Count - 1);
+
             int k = ((arr.Count - 1) - 1) / 2, j = arr.Count - 1;
 
             while (k >= 0)
@@ -190,7 +193,10 @@ namespace KeepPractising.Trees
             T temp;
             int tempPos;
             arr[index] = data;
-            positionDictionary.Add(data, index);
+
+            if (positionDictionary != null)
+                positionDictionary.Add(data, index);
+
             int k = (index - 1) / 2, j = index;
 
             while (k >= 0)
@@ -363,7 +369,10 @@ namespace KeepPractising.Trees
             T temp;
             int tempPos;
             arr.Add(data);
-            positionDictionary.Add(data, arr.Count - 1);
+
+            if (positionDictionary != null)
+                positionDictionary.Add(data, arr.Count - 1);
+
             int k = ((arr.Count - 1) - 1) / 2, j = arr.Count - 1;
 
             while (k >= 0)
@@ -403,7 +412,10 @@ namespace KeepPractising.Trees
             T temp;
             int tempPos;
             arr[index] = data;
-            positionDictionary.Add(data, index);
+            
+            if (positionDictionary != null)
+                positionDictionary.Add(data, index);
+
             int k = (index - 1) / 2, j = index;
 
             while (k >= 0)
