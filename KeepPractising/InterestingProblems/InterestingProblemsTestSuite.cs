@@ -251,5 +251,44 @@ namespace KeepPractising.InterestingProblems
             Console.WriteLine("For length 2 - " + obj.CountBinaryStringsNonConsecutive1s(2));
             Console.WriteLine("For length 100 - " + obj.CountBinaryStringsNonConsecutive1s(100));
         }
+
+        public static void TestMedianOfIntegerStream()
+        {
+            var obj = new MedianOfIntStream();
+            obj.Add(18);
+            obj.Add(9);
+            obj.Add(7);
+            obj.Add(4);
+            obj.Add(2);
+            obj.Add(1);
+            obj.Add(-1);
+            Console.WriteLine(obj.GetMedian());
+
+            obj = new MedianOfIntStream();
+            obj.Add(1);
+            obj.Add(2);
+            obj.Add(4);
+            obj.Add(7);
+            obj.Add(9);
+            obj.Add(18);
+            Console.WriteLine(obj.GetMedian());
+
+            obj = new MedianOfIntStream();
+            obj.Add(7);
+            obj.Add(2);
+            obj.Add(1);
+            obj.Add(4);
+            Console.WriteLine(obj.GetMedian());
+
+            obj = new MedianOfIntStream();
+            obj.Add(7);
+            obj.Add(2);
+            obj.Add(1);
+            obj.Add(-1);
+            obj.Add(9);
+            obj.Add(18);
+            obj.Add(4);
+            Console.WriteLine(obj.GetMedian());
+        }
     }
 }

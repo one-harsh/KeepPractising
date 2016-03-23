@@ -111,7 +111,7 @@ namespace KeepPractising.Sorting
         /// <typeparam name="T"></typeparam>
         /// <param name="arr"></param>
         /// <param name="bottom"></param>
-        private static void FixUp<T>(T[] arr, int bottom) where T : IComparable<T>, IEquatable<T> // Kept it if someone is interested in doing it the opposite way.
+        private static void FixUp<T>(T[] arr, int bottom) where T : IComparable<T>, IEquatable<T> // Kept it if simply for reference.
         {
             T temp;
             int k = (bottom - 1) / 2, j = bottom;

@@ -15,7 +15,7 @@ namespace KeepPractising.Trees
         public MyNode<T> FindByData(T data)
         {
             foreach (var node in Items)
-                if (node.Data.Equals(data))
+                if (node != null && node.Data.Equals(data))
                     return node;
 
             return null;

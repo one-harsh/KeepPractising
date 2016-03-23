@@ -133,8 +133,87 @@ namespace KeepPractising.Trees
             arr[0] = arr[bottom];
             arr[bottom] = temp;
 
-            arr.MinHeapify(0, bottom - 1);
+            arr.MinHeapify(0, bottom - 1, positionDictionary);
             return temp;
+        }
+
+        /// <summary>
+        /// This method inserts a new element into the min heap, while maintaining its MinHeap structure.
+        /// The method assumes that the collection is a MinHeap to begin with.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <param name="data"></param>
+        /// <param name="positionDictionary"></param>
+        public static void InsertIntoMinHeap<T>(this Collection<T> arr, T data, Dictionary<T, int> positionDictionary = null) where T : IComparable<T>, IEquatable<T>
+        {
+            T temp;
+            int tempPos;
+            arr.Add(data);
+            positionDictionary.Add(data, arr.Count - 1);
+            int k = ((arr.Count - 1) - 1) / 2, j = arr.Count - 1;
+
+            while (k >= 0)
+            {
+                if (arr[k].CompareTo(arr[j]) <= 0)
+                    break;
+
+                // Update the new positions
+                if (positionDictionary != null && positionDictionary.Count == arr.Count)
+                {
+                    tempPos = positionDictionary[arr[k]];
+                    positionDictionary[arr[k]] = positionDictionary[arr[j]];
+                    positionDictionary[arr[j]] = tempPos;
+                }
+
+                // Update the collection
+                temp = arr[k];
+                arr[k] = arr[j];
+                arr[j] = temp;
+
+                j = k;
+                k = (k - 1) / 2;
+            }
+        }
+
+        /// <summary>
+        /// This method inserts a new element into the min heap, while maintaining its MinHeap structure.
+        /// The method assumes that the array is a MinHeap to begin with and there are no elements after the specified index.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <param name="index"></param>
+        /// <param name="data"></param>
+        /// <param name="positionDictionary"></param>
+        public static void InsertIntoMinHeap<T>(this T[] arr, int index, T data, Dictionary<T, int> positionDictionary = null) where T : IComparable<T>, IEquatable<T>
+        {
+            T temp;
+            int tempPos;
+            arr[index] = data;
+            positionDictionary.Add(data, index);
+            int k = (index - 1) / 2, j = index;
+
+            while (k >= 0)
+            {
+                if (arr[k].CompareTo(arr[j]) <= 0)
+                    break;
+
+                // Update the new positions
+                if (positionDictionary != null && positionDictionary.Count == index)
+                {
+                    tempPos = positionDictionary[arr[k]];
+                    positionDictionary[arr[k]] = positionDictionary[arr[j]];
+                    positionDictionary[arr[j]] = tempPos;
+                }
+
+                // Update the array
+                temp = arr[k];
+                arr[k] = arr[j];
+                arr[j] = temp;
+
+                j = k;
+                k = (k - 1) / 2;
+            }
         }
     }
 
@@ -241,7 +320,7 @@ namespace KeepPractising.Trees
             arr[0] = arr[bottom];
             arr[bottom] = temp;
 
-            arr.MaxHeapify(0, bottom - 1);
+            arr.MaxHeapify(0, bottom - 1, positionDictionary);
             return temp;
         }
 
@@ -267,8 +346,87 @@ namespace KeepPractising.Trees
             arr[0] = arr[bottom];
             arr[bottom] = temp;
 
-            arr.MaxHeapify(0, bottom - 1);
+            arr.MaxHeapify(0, bottom - 1, positionDictionary);
             return temp;
+        }
+
+        /// <summary>
+        /// This method inserts a new element into the max heap, while maintaining its MaxHeap structure.
+        /// The method assumes that the collection is a MaxHeap to begin with.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <param name="data"></param>
+        /// <param name="positionDictionary"></param>
+        public static void InsertIntoMaxHeap<T>(this Collection<T> arr, T data, Dictionary<T, int> positionDictionary = null) where T : IComparable<T>, IEquatable<T>
+        {
+            T temp;
+            int tempPos;
+            arr.Add(data);
+            positionDictionary.Add(data, arr.Count - 1);
+            int k = ((arr.Count - 1) - 1) / 2, j = arr.Count - 1;
+
+            while (k >= 0)
+            {
+                if (arr[k].CompareTo(arr[j]) >= 0)
+                    break;
+
+                // Update the new positions
+                if (positionDictionary != null && positionDictionary.Count == arr.Count)
+                {
+                    tempPos = positionDictionary[arr[k]];
+                    positionDictionary[arr[k]] = positionDictionary[arr[j]];
+                    positionDictionary[arr[j]] = tempPos;
+                }
+
+                // Update the collection
+                temp = arr[k];
+                arr[k] = arr[j];
+                arr[j] = temp;
+
+                j = k;
+                k = (k - 1) / 2;
+            }
+        }
+
+        /// <summary>
+        /// This method inserts a new element into the max heap, while maintaining its MaxHeap structure.
+        /// The method assumes that the array is a MaxHeap to begin with and there are no elements after the specified index.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <param name="index"></param>
+        /// <param name="data"></param>
+        /// <param name="positionDictionary"></param>
+        public static void InsertIntoMaxHeap<T>(this T[] arr, int index, T data, Dictionary<T, int> positionDictionary = null) where T : IComparable<T>, IEquatable<T>
+        {
+            T temp;
+            int tempPos;
+            arr[index] = data;
+            positionDictionary.Add(data, index);
+            int k = (index - 1) / 2, j = index;
+
+            while (k >= 0)
+            {
+                if (arr[k].CompareTo(arr[j]) >= 0)
+                    break;
+
+                // Update the new positions
+                if (positionDictionary != null && positionDictionary.Count == index)
+                {
+                    tempPos = positionDictionary[arr[k]];
+                    positionDictionary[arr[k]] = positionDictionary[arr[j]];
+                    positionDictionary[arr[j]] = tempPos;
+                }
+
+                // Update the array
+                temp = arr[k];
+                arr[k] = arr[j];
+                arr[j] = temp;
+
+                j = k;
+                k = (k - 1) / 2;
+            }
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
     <Compile Include="InterestingProblems\MaxSumSubArray.cs" />
     <Compile Include="InterestingProblems\MedianOfClustersSizeInGrid.cs" />
+    <Compile Include="InterestingProblems\MedianOfIntStream.cs" />
     <Compile Include="InterestingProblems\NonConsecutive1BinaryStrings.cs" />
     <Compile Include="InterestingProblems\NumberOfDisksInWavyCircularWell.cs" />
     <Compile Include="InterestingProblems\WordsInCrossword.cs" />
@@ -92,9 +93,10 @@
     <Compile Include="Threading\SynchronizeOutput.cs" />
     <Compile Include="Threading\ThreadpoolScheduler.cs" />
     <Compile Include="Trees\InOrderTraversal.cs" />
-    <Compile Include="Trees\Heap.cs" />
+    <Compile Include="Trees\HeapHelper.cs" />
     <Compile Include="Trees\MyBinarySearchTree.cs" />
     <Compile Include="Trees\MyBinaryTree.cs" />
+    <Compile Include="Trees\MyHeap.cs" />
     <Compile Include="Trees\MyTree.cs" />
     <Compile Include="Trees\MyTreeTestSuite.cs" />
     <Compile Include="Trees\MyTrie.cs" />
