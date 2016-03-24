@@ -78,6 +78,7 @@
     <Compile Include="Stacks\MyKStacksInArray.cs" />
     <Compile Include="Stacks\MyStack.cs" />
     <Compile Include="Stacks\MyStacksTestSuite.cs" />
+    <Compile Include="Stacks\StackWithMinMethod.cs" />
     <Compile Include="Strings\FirstNonRepeatingCharacter.cs" />
     <Compile Include="Strings\KMPPatternSearch.cs" />
     <Compile Include="Strings\LongestCommonSubsequence.cs" />
