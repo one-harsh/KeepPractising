@@ -139,5 +139,21 @@ namespace KeepPractising.Sorting
             Console.WriteLine("\nSorted array:-");
             PrintArray(arr);
         }
+
+        public static void TestAnagramSort()
+        {
+            var arr = new string[] { "three", "cat", "mat", "dog", "act", "robe", "god", "ether", "bore", "there" };
+            Console.WriteLine("Initial array:-");
+            PrintArray(arr);
+
+            arr.AnagramSort(2, 8);
+            Console.WriteLine("\nSorted array from 2nd index to 8th index :-");
+            PrintArray(arr);
+
+            arr = new string[] { "three", "cat", "mat", "dog", "act", "robe", "god", "ether", "bore", "there" };
+            arr.AnagramSort();
+            Console.WriteLine("\nSorted array:-");
+            PrintArray(arr);
+        }
     }
 }

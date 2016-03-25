@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queues\MyQueue.cs" />
     <Compile Include="Queues\MyQueuesTestSuite.cs" />
+    <Compile Include="Sorting\MyAnagramSort.cs" />
     <Compile Include="Sorting\MyHeapSort.cs" />
     <Compile Include="Sorting\MyInsertionSort.cs" />
     <Compile Include="Sorting\MyMergeSort.cs" />
