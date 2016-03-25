@@ -81,5 +81,25 @@ namespace KeepPractising.Stacks
                 Console.WriteLine("Stack underflow test detection successful!");
             }
         }
+
+        public static void TestStackWithMinMethod()
+        {
+            StackWithMinMethod<int> stack = new StackWithMinMethod<int>();
+            stack.Push(10);
+            stack.Push(20);
+            stack.Push(25);
+            stack.Push(5);
+            stack.Push(20);
+            stack.Push(0);
+            stack.Push(100);
+            stack.Push(-5);
+            Console.WriteLine("Min " + stack.GetMin());
+            Console.WriteLine("Pop " + stack.Pop());
+            Console.WriteLine("Min " + stack.GetMin());
+            Console.WriteLine("Pop " + stack.Pop());
+            Console.WriteLine("Min " + stack.GetMin());
+            Console.WriteLine("Pop " + stack.Pop());
+            Console.WriteLine("Min " + stack.GetMin());
+        }
     }
 }
