@@ -290,5 +290,48 @@ namespace KeepPractising.InterestingProblems
             obj.Add(4);
             Console.WriteLine(obj.GetMedian());
         }
+
+        public static void TestAToI()
+        {
+            var obj = new StringToInteger();
+            Console.WriteLine(obj.AToI("23"));
+            Console.WriteLine(obj.AToI("-21"));
+
+            try
+            {
+                Console.WriteLine(obj.AToI(int.MinValue.ToString().Substring(1)));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Caught an overflow exception for {0}", int.MinValue.ToString().Substring(1));
+            }
+
+            try
+            {
+                Console.WriteLine(obj.AToI("-123213213213213213"));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Caught an overflow exception for {0}", "-123213213213213213");
+            }
+
+            try
+            {
+                Console.WriteLine(obj.AToI("asd"));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Caught a not an integer exception for asd");
+            }
+
+            try
+            {
+                Console.WriteLine(obj.AToI("23e+1"));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Caught a not an integer exception for 23e+1");
+            }
+        }
     }
 }

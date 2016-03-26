@@ -48,6 +48,7 @@
     <Compile Include="Graphs\MyGraph.cs" />
     <Compile Include="Graphs\MyGraphNode.cs" />
     <Compile Include="Graphs\TopologicalSortExtension.cs" />
+    <Compile Include="InterestingProblems\StringToInteger.cs" />
     <Compile Include="InterestingProblems\EnglishNumbers.cs" />
     <Compile Include="InterestingProblems\InterestingProblemsTestSuite.cs" />
     <Compile Include="InterestingProblems\LargestSquareFinderInBinaryMatrix.cs" />
