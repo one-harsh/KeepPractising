@@ -101,5 +101,41 @@ namespace KeepPractising.Stacks
             Console.WriteLine("Pop " + stack.Pop());
             Console.WriteLine("Min " + stack.GetMin());
         }
+
+        public static void TestStackUsingArrays()
+        {
+            var stack = new MyStackUsingArray<int>(5);
+            stack.Push(10);
+            stack.Push(20);
+            stack.Push(25);
+            Console.WriteLine(stack.Pop());
+            stack.Push(20);
+            stack.Push(0);
+            stack.Push(100);
+
+            try
+            {
+                stack.Push(-5);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Caught a stack overflow exception!");
+            }
+
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+
+            try
+            {
+                Console.WriteLine(stack.Pop());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Caught a stack underflow exception!");
+            }
+        }
     }
 }
