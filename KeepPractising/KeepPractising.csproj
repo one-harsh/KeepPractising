@@ -95,6 +95,7 @@
     <Compile Include="Threading\SemaphoreScheduler.cs" />
     <Compile Include="Threading\SynchronizeOutput.cs" />
     <Compile Include="Threading\ThreadpoolScheduler.cs" />
+    <Compile Include="Trees\ConstructBinaryTree.cs" />
     <Compile Include="Trees\InOrderTraversal.cs" />
     <Compile Include="Trees\HeapHelper.cs" />
     <Compile Include="Trees\MyBinarySearchTree.cs" />

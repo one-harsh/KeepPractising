@@ -124,5 +124,23 @@ namespace KeepPractising.Trees
             Console.WriteLine("Counting the number of words that start with - \"Wordamenting\"");
             Console.WriteLine(tries.WordCountWithPrefix("Wordamenting"));
         }
+
+        public static void TestBinaryTreeGenerationFromInAndPreOrder()
+        {
+            var inOrder = new int[] { 6, 8, 10, 11, 12, 15 };
+            var preOrder = new int[] { 10, 8, 6, 12, 11, 15 };
+
+            var inOrder1 = new int[] { 10, 11, 12, 15 };
+            var preOrder1 = new int[] { 10, 12, 11, 15 };
+
+            var obj = new ConstructBinaryTree<int>();
+            var tree = obj.ConstructBinaryTreeFromInAndPre(inOrder, preOrder);
+            Console.WriteLine("Inorder traversal for tree");
+            new InOrderTraversal<int>(tree).PrintInOrderRecursively();
+
+            var tree1 = obj.ConstructBinaryTreeFromInAndPre(inOrder1, preOrder1);
+            Console.WriteLine("Inorder traversal for tree1");
+            new InOrderTraversal<int>(tree1).PrintInOrderRecursively();
+        }
     }
 }
