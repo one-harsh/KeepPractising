@@ -122,6 +122,17 @@ namespace KeepPractising.Graphs
             {
                 Console.WriteLine("Caught the expected NotDAGException as the graph was not a DAG.");
             }
+
+            try
+            {
+                graph = GetADummyDAG();
+                graph.AddDirectedEdge(graph.Nodes.FindByData(40), graph.Nodes.FindByData(10), 5);
+                graph.TopologicalSort();
+            }
+            catch (NotDAGException)
+            {
+                Console.WriteLine("Caught the expected NotDAGException as the graph was not a DAG.");
+            }
         }
 
         public static void TestDijkstraAlgorithm()

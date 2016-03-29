@@ -58,32 +58,46 @@ namespace KeepPractising.Graphs
 
             if (zeroDegrees.Count == 0)
                 return false;
+            
+            return !IsCyclic(graph);
+        }
 
-            MyGraphNode<T> vertex = zeroDegrees[0];
-            var queue = new Queues.MyQueue<MyGraphNode<T>>();
-            var visitedSet = new HashSet<MyGraphNode<T>>();
-            var doneSet = new HashSet<MyGraphNode<T>>();
-
-            queue.Enqueue(vertex);
-            visitedSet.Add(vertex);
-
-            while (!queue.Empty())
+        private static bool IsCyclic<T>(MyGraph<T> graph)
+        {
+            var visited = new bool[graph.NodeCount];
+            var recStack = new bool[graph.NodeCount];
+            for (int i = 0; i < graph.NodeCount; i++)
             {
-                vertex = queue.Dequeue();
-                foreach (MyGraphNode<T> node in vertex.Neighbors)
-                {
-                    if (doneSet.Contains(node))
-                        return false;
-
-                    if (!visitedSet.Contains(node))
-                    {
-                        visitedSet.Add(node);
-                        queue.Enqueue(node);
-                    }
-                }
+                visited[i] = false;
+                recStack[i] = false;
             }
 
-            return true;
+            for (int i = 0; i < graph.NodeCount; i++)
+                if (IsCyclicRecurse(graph, i, visited, recStack))
+                    return true;
+
+            return false;
+        }
+
+        private static bool IsCyclicRecurse<T>(MyGraph<T> graph, int index, bool[] visited, bool[] backTracker)
+        {
+            if (visited[index] == false)
+            {
+                visited[index] = true;
+                backTracker[index] = true;
+
+                foreach (var node in graph.Nodes[index].Neighbors)
+                {
+                    var i = graph.Nodes.IndexOf(node);
+                    if ((!visited[i] && IsCyclicRecurse(graph, i, visited, backTracker)) || backTracker[i])
+                        return true;
+                }
+
+            }
+
+            // Restore
+            backTracker[index] = false; 
+            return false;
         }
 
         private static void GetInDegreesAndZeroDegreeList<T>(MyGraph<T> graph, out Dictionary<MyGraphNode<T>, int> inDegrees, out List<MyGraphNode<T>> zeroDegrees)
