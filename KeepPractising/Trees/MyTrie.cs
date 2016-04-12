@@ -4,7 +4,6 @@ namespace KeepPractising.Trees
 {
     class MyTrie
     {
-        MyTrie root;
         MyTrie[] children;
         const int Int_a = (int)'a';
 
@@ -16,17 +15,6 @@ namespace KeepPractising.Trees
         public bool IsEnd { get; private set; }
 
         public int PrefixCount { get; private set; }
-
-        MyTrie Root
-        {
-            get
-            {
-                if (root == null)
-                    root = new MyTrie();
-
-                return root;
-            }
-        }
 
         MyTrie[] Children
         {
@@ -41,7 +29,7 @@ namespace KeepPractising.Trees
 
         public void Add(string word)
         {
-            var current = Root;
+            var current = this;
             current.PrefixCount++;
             word = word.ToLower();
 
@@ -63,7 +51,7 @@ namespace KeepPractising.Trees
 
         public bool Search(string word)
         {
-            var current = Root;
+            var current = this;
             word = word.ToLower();
 
             for (int i = 0; i < word.Length; i++)
@@ -83,7 +71,7 @@ namespace KeepPractising.Trees
 
         public int WordCountWithPrefix(string prefix)
         {
-            var current = Root;
+            var current = this;
             prefix = prefix.ToLower();
 
             for (int i = 0; i < prefix.Length; i++)
